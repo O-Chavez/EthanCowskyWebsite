@@ -22,17 +22,17 @@ export default function Landing() {
 
   const CONTACT_ME = {
     bottom: "12%",
-    left: "45%",
+    left: "43.5%",
   }
 
   const MY_WORK = {
     right: "10%",
-    top: "50%",
+    top: "45%",
   }
 
   const LOGO = {
-    left: "15%",
-    top: "20%",
+    left: "10%",
+    top: "15%",
   }
   
 
@@ -40,19 +40,33 @@ export default function Landing() {
     <div className="landing">
       <div 
       style={TOP_LEFT} 
-      className={`wallpaper topLeft ${hovered === "Ethan Cowsky Photography" ? "zoom" : ''}`}></div>
+      className={`wallpaper topLeft ${hovered === "Ethan Cowsky Photography" ? "zoom" : ''}`}>
+      <ul className="slideshow">
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      </div>
       <div 
       style={BOTTOM_RIGHT} 
-      className={`wallpaper bottomRight ${hovered === "Contact Me" ? "zoom" : ''}`}></div>
+      className={`wallpaper bottomRight ${hovered === "Contact Me" ? "zoom" : ''}`}>
+        <ul className="slideshow2">
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
       <div 
       style={BOTTOM_CENTER} 
-      className={`wallpaper bottomCenter ${hovered === "My Work" ? "zoom" : ''}`}></div>
-
+      className={`wallpaper bottomCenter ${hovered === "My Work" ? "zoom" : ''}`}>
+        <ul className="slideshow3">
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
       <nav className="navbar navbar-dark">
         <div className="container-fluid">
-          <a className="navbar-brand ml-auto" href="#">
-            Ethan Cowsky
-          </a>
           <a href="https://www.instagram.com/ethancowsky/?hl=en" target="_blank" className="nav-link text-white fs-4">
             <i className="fab fa-instagram"></i>
           </a>
@@ -82,7 +96,7 @@ export default function Landing() {
         onMouseEnter={e => setHovered(e.target.innerText)} 
 
         onMouseLeave={e => setHovered("")}
-        >   Ethan Cowsky Photography
+        >Ethan Cowsky Photography
             
         </button>
       </div>
