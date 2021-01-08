@@ -1,0 +1,13 @@
+.index{
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(rgb(100, 100, 100), rgb(0,0,0));
+
+}
+
+.photos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 1em auto 1em auto;
+}

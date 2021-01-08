@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import { NavLink } from "react-router-dom";
 import "./Landing.css"
 
 export default function Landing() {
@@ -19,23 +20,7 @@ export default function Landing() {
     backgroundImage: "url('https://images.unsplash.com/photo-1495306765622-7639a965c271?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80')",
     clipPath: "polygon(100vw 0, 50% 50vh, 100vw 100vh)",
   }
-
-  const CONTACT_ME = {
-    bottom: "12%",
-    left: "43.5%",
-  }
-
-  const MY_WORK = {
-    right: "10%",
-    top: "45%",
-  }
-
-  const LOGO = {
-    left: "10%",
-    top: "15%",
-  }
-  
-
+ 
   return (
     <div className="landing">
       <div 
@@ -65,41 +50,58 @@ export default function Landing() {
           <li></li>
         </ul>
       </div>
-      <nav className="navbar navbar-dark">
-        <div className="container-fluid">
-          <a href="https://www.instagram.com/ethancowsky/?hl=en" target="_blank" className="nav-link text-white fs-4">
-            <i className="fab fa-instagram"></i>
-          </a>
-        </div>
+
+      <nav className="landingNav navbar navbar-dark bg-dark">
+        
+          <div className="container-fluid mx-5">
+              <p 
+                className="navbar-text text-white w-30 my-auto">
+                Photography
+              </p>
+              <a 
+                href="https://www.instagram.com/ethancowsky/?hl=en" target="_blank" rel="noreferrer" 
+                className="fs-4 text-white w-30">
+                  <i className="fab fa-instagram"></i>
+              </a>
+              <p 
+                className="navbar-text text-white w-30 my-auto">
+                3D Rendering
+              </p>
+            </div>
       </nav>
 
       <div>
-        <button style={CONTACT_ME} 
-        className={`boxes ${hovered === "Contact Me" ? 'hovered' : ''}`} 
-        onMouseEnter={e => setHovered(e.target.innerText)} 
-        onMouseLeave={e => setHovered("")}
-        >Contact Me</button>
+        <button 
+          className={`boxes contactMe ${hovered === "Contact Me" ? 'hovered' : ''}`} 
+          onMouseEnter={e => setHovered(e.target.innerText)} 
+          onMouseLeave={e => setHovered("")}
+          >Contact Me
+        </button>
       </div>
 
       <div>
-      <button style={MY_WORK} 
-      className={`boxes ${hovered === "My Work" ? 'hovered' : ''}`} 
-      onMouseEnter={e => setHovered(e.target.innerText)} 
-      onMouseLeave={e => setHovered("")}
-      >My Work</button>
+        <NavLink
+          to="/mywork"
+          className={`boxes myWork ${hovered === "My Work" ? 'hovered' : ''}`} 
+          onMouseEnter={e => setHovered(e.target.innerText)} 
+          onMouseLeave={e => setHovered("")}
+          >My Work
+        </NavLink>
       </div>
 
-      <div >
-        <button
-        style={LOGO} 
-        className={`boxes ${hovered === 'Ethan Cowsky Photography' ? "hovered" : ''}`} 
+      <a href="https://www.instagram.com/ethancowsky/?hl=en" target="_blank" 
+      rel="noreferrer" 
+        className={`boxes logo ${hovered === 'Ethan Cowsky Photography' ? "hovered" : ''}`} 
         onMouseEnter={e => setHovered(e.target.innerText)} 
-
         onMouseLeave={e => setHovered("")}
         >Ethan Cowsky Photography
-            
-        </button>
-      </div>
+        <div className={`text-center ${hovered === 'Ethan Cowsky Photography' ? "shown" : 'hidden'} `}>
+          <a 
+            className="nav-link text-white fs-4">
+            Instagram <i className="fab fa-instagram"></i>
+          </a>
+        </div>
+      </a>
     </div>
   )
 }
