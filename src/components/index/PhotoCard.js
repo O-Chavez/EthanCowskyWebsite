@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 import "./PhotoCard.css"
 
@@ -13,9 +14,9 @@ export default function PhotoCard() {
             Info here about the current photo. Blah blach blach yayayaya
             
           </div>
-          <button className="infoButton">
+          <Link className="infoButton" to="/info">
             More Info
-          </button>
+          </Link>
           
         </div>
 

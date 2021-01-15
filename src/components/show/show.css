@@ -1,0 +1,115 @@
+.show {
+  background-image: linear-gradient( rgb(201, 201, 201), rgb(0, 0, 0));
+  height: 100%;
+  width: 100%;
+}
+
+hr {
+  color: white;
+  margin: 0;
+}
+
+.showContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.backArrow {
+  background-color: white;
+  color: slategray;
+  width: 5em;
+  border-radius: 25px;
+  padding: .75em;
+  margin: 1em 0 1em 0;
+  transition: .25s;
+
+}
+
+.backArrow:hover {
+  transition: .25s;
+  box-shadow: 0 0 20px 5px rgb(0, 0, 0);
+  color: black;
+}
+
+.mainImage {
+  position: relative;
+  width: 100%;
+  height: 40em;
+  background-image: url(https://ocmain.s3-us-west-1.amazonaws.com/Ethan+Cowsky/FINALLY+BACK.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 auto 1.5em auto;
+}
+
+.imgCover {
+  position: relative;
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  background-color: rgba(146, 145, 145, 0.616);
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  position: absolute;
+  right: 5%;
+  top: 40%;
+  width: 30%;
+  color: white;
+}
+
+.description {
+  position: absolute;
+  width: 40%;
+  right: 5%;
+  bottom: 10%;
+}
+
+.description p {
+  color: white;
+  font-size: large;
+}
+
+.buyBanner {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  margin: 1em;
+}
+
+.buyInfo {
+  width: 80%;
+  color: white;
+  align-self: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.buyInfo p {
+  width: 100%;
+  margin: 0;
+}
+
+
+.buyBtn {
+  align-self: flex-end;
+  width: 20%;
+  color: slategray;
+  font-weight: 600;
+  background-color: white;
+  padding: .75em;
+  border-radius: 25px;
+  transition: .25s;
+
+}
+
+.buyBtn:hover {
+  transition: .25s;
+  box-shadow: 0 0 20px 5px rgb(70, 70, 70);
+  color: black;
+}
+
+.buyBtn i {
+  font-size: 2em;
+}

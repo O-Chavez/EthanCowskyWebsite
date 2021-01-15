@@ -1,17 +1,13 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-import "./index.css";
-
-import PhotoCard from "./PhotoCard"
-
-export default function index() {
+export default function header() {
   return (
-    <div className="index">
-
+    
     <nav className="landingNav navbar navbar-dark bg-dark">
       <div className="container-fluid mx-5">
-        <Link to="/"
+        <Link 
+        to="/"
           className="navbar-text text-white w-30 my-auto">
           Ethan Cowsky
         </Link>
@@ -25,20 +21,7 @@ export default function index() {
             3D Rendering
           </p>
       </div>
-    </nav>
-
-      <div className="container d-flex photos">
-        
-        <PhotoCard />
-        <PhotoCard />
-        <PhotoCard />
-        <PhotoCard />
-        <PhotoCard />
-        <PhotoCard />
-        <PhotoCard />
-        <PhotoCard />
-
-      </div>
-    </div>
+  </nav>
+    
   )
 }

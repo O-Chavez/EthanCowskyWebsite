@@ -76,23 +76,13 @@ a:hover {
 
 .logo{
   left: 10%;
-  top: 15%;
+  top: 22.5%;
 }
 
 .hidden {
   display: none;
   overflow: hidden;
   transition: .25s;
-  /* max-height: 0; Causes problems!!! */  
-
-  /* overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.5s; */
-
-
-  /* transform: scaleY(0);    
-  transform-origin: top;
-  transition: transform 0.26s ease-out; */
 }
 
 .shown{
@@ -101,22 +91,23 @@ a:hover {
 
 
 @media screen and (max-width:1000px){
+  
   .boxes{
-    font-size: 5vw;
+    font-size: 5.25vw;
   }
   .contactMe {
-    bottom: 12%;
+    bottom: 18%;
     left: 35%;
   }
   
   .myWork {
-    right: 5%;
-    top: 45%;
+    right: 8%;
+    top: 47%;
   }
   
   .logo{
     left: 5%;
-    top: 15%;
+    top: 18%;
   }
 }
 

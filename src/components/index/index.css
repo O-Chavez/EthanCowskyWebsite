@@ -1,8 +1,12 @@
 .index{
-  height: 100%;
   width: 100%;
-  background: linear-gradient(rgb(100, 100, 100), rgb(0,0,0));
+  background-image: linear-gradient( rgb(201, 201, 201), rgb(0, 0, 0));  
+  margin: 0;
+  position: relative;
+}
 
+.landingNav {
+  opacity: .8;
 }
 
 .photos {
@@ -10,4 +14,14 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin: 1em auto 1em auto;
+}
+
+
+@media screen and (max-width:1000px){
+  
+  .photos {
+    display: flex;
+    flex-direction: column;
+  }
+  
 }

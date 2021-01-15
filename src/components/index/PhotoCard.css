@@ -6,19 +6,30 @@
   position: relative;
   min-width: 50%;
   height: 30em;
-  /* background: linear-gradient(rgba(66, 66, 66, 0.486), rgb(0,0,0));; */
   background-color: rgba(12, 12, 12, 0.281);
   font-family: Roboto;
-  border: 1px solid black;
-
+  overflow: hidden;
 }
+
+a {
+  text-decoration: none;
+}
+
 
 .image {
   width: 100%;
   background-image: url(https://ocmain.s3-us-west-1.amazonaws.com/Ethan+Cowsky/FINALLY+BACK.png);
-  background-size: contain;
+  /* background-size: contain; */
+  transition: .25s ease-in-out; 
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.image:hover {
+  /* transform: scale(1.25);*/
+  transition: .25s ease-in-out; 
+  background-size: 120%;
 }
 
 .info {
@@ -42,7 +53,6 @@
   font-weight: 300;
   bottom: 25%;
   right: 15%;
-  
 }
 
 .infoButton {
@@ -50,4 +60,20 @@
   bottom: 10%;
   right: 5%;
   border-radius: 25px;
+  padding: 0.75em;
+  background-color: #c4c4c4;
+  border: none;
+  color:white;
+  text-shadow: 1px 1px #252525;
+}
+
+@media screen and (max-width:1000px){
+  
+  .info {
+    opacity: 1;
+    transition: .25s;
+    clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    background-color: rgba(146, 145, 145, 0.459);
+  }
+  
 }
