@@ -142,46 +142,46 @@ li {
 
 .slideshow li:nth-child(1) { 
   background-image: url(https://ocmain.s3-us-west-1.amazonaws.com/Ethan+Cowsky/vdbforester4k.png);
-  animation-delay: 5s; 
+  animation-delay: 3s; 
  
 }
 .slideshow li:nth-child(2) { 
   background-image: url(http://i.imgur.com/SBEmFpv.jpg);
-  animation-delay: 15s; 
+  animation-delay: 13s; 
 }
 .slideshow li:nth-child(3) { 
   background-image: url(http://i.imgur.com/emvhOnb.jpg);
-  animation-delay: 25s; 
+  animation-delay: 23s; 
 }
 
 
 .slideshow2 li:nth-child(1) { 
   background-image: url(https://ocmain.s3-us-west-1.amazonaws.com/Ethan+Cowsky/statues4k.jpg) ;
-  animation-delay: 10s; 
+  animation-delay: 8s; 
 
 }
 .slideshow2 li:nth-child(2) { 
   background-image: url(https://images.unsplash.com/photo-1609519819985-47595cfe3cbf?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);
-  animation-delay: 20s; 
+  animation-delay: 18s; 
 }
 .slideshow2 li:nth-child(3) { 
   background-image: url(https://images.unsplash.com/photo-1479708534902-701b0fe9a6c3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80);
-  animation-delay: 30s; 
+  animation-delay: 28s; 
 }
 
 
 .slideshow3 li:nth-child(1) { 
   background-image: url(https://ocmain.s3-us-west-1.amazonaws.com/Ethan+Cowsky/FINALLY+BACK.png);
-  animation-delay: 15s; 
+  animation-delay: 13s; 
  
 }
 .slideshow3 li:nth-child(2) { 
   background-image: url(https://images.unsplash.com/photo-1597238303716-424ec391aa6c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80);
-  animation-delay: 25s; 
+  animation-delay: 23s; 
 }
 .slideshow3 li:nth-child(3) { 
   background-image: url(https://images.unsplash.com/photo-1585489305804-0b91232548d9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1225&q=80);
-  animation-delay: 35s; 
+  animation-delay: 33s; 
 }
 
 
