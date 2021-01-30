@@ -4,24 +4,24 @@ import "./show.css";
 
 export default function show() {
   return (
-    <div className="show">
+    <div className="showDiv">
       <nav className="landingNav navbar navbar-dark bg-dark">
-    <div className="container-fluid mx-5">
-      <Link to="/"
-        className="navbar-text text-white w-30 my-auto">
-        Ethan Cowsky
-      </Link>
-        <a 
-          href="https://www.instagram.com/ethancowsky/?hl=en" target="_blank" rel="noreferrer" 
-          className="fs-4 text-white w-30">
-            <i className="fab fa-instagram"></i>
-        </a>
-        <p 
-          className="navbar-text text-white w-30 my-auto">
-          3D Rendering
-        </p>
-    </div>
-  </nav>
+        <div className="container-fluid mx-5">
+          <Link to="/"
+            className="navbar-text text-white w-30 my-auto">
+            Ethan Cowsky
+          </Link>
+            <a 
+              href="https://www.instagram.com/ethancowsky/?hl=en" target="_blank" rel="noreferrer" 
+              className="fs-4 text-white w-30">
+                <i className="fab fa-instagram"></i>
+            </a>
+            <p 
+              className="navbar-text text-white w-30 my-auto">
+              3D Rendering
+            </p>
+        </div>
+      </nav>
     
     <div className="showContent container">
 
@@ -40,9 +40,7 @@ export default function show() {
                   loremQui do quis dolor ipsum amet esse. Laborum minim consequat id enim dolor enim quis mollit excepteur ad esse nulla aute. Ullamco officia fugiat eiusmod cillum nulla. Est tempor laborum amet do ipsum ipsum voluptate nostrud sunt deserunt eiusmod. Amet reprehenderit id nostrud ipsum Lorem duis aliquip laboris. Ea eu cillum aliqua dolor dolore sunt. Mollit ipsum incididunt anim officia anim.
                 </p>
               </div>
-            
           </div>
-
         </div>
         <hr></hr>
 

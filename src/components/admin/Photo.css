@@ -1,0 +1,50 @@
+.adminPhoto{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 49%;
+  min-width: 600px;
+  height: 30em;
+  margin-bottom: .5em;
+}
+
+.adminImg{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.adminTitle{
+  width: 98%;
+  height: 20%;
+  background-color: rgba(146, 146, 146, 0.637);
+  justify-content: center;
+  margin: .5em .5em 0 .5em;
+}
+
+.admininfo{
+  position: absolute;
+  bottom: 0;
+  width: 98%;
+  height: 30%;
+  background-color: rgba(146, 146, 146, 0.637);
+  margin: 0 .5em .5em .5em;
+}
+
+.adminDescription{
+  position: absolute;
+  left: 0;
+  margin: .5em 0 0 .5em;
+  width: 70%;
+}
+
+.adminBtn{
+  position: absolute;
+  right: 2em;
+  bottom: 45%;
+  height: 2em;
+  margin: .5em .5em 0 0
+}
