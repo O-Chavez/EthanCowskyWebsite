@@ -1,26 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
 import "./PhotoCard.css"
 
-export default function PhotoCard() {
+  const PhotoCard = ({ photoInfo }) => {
+
+   
+
   return (
-    <div className="photocard">
-      <div className="image">
-
+    <div 
+      className="photocard"
+      >
+      <div 
+        className="image"
+        style={{ backgroundImage: `url('${photoInfo.showImg}')`}}>
         <div className="info text-center">
-
-          <div className="infoText">
-            Info here about the current photo. Blah blach blach yayayaya
-            
+          <div className='infoTitle'>
+            {photoInfo.photoName}
           </div>
-          <Link className="infoButton" to="/info">
+          <div className="infoText">
+            {photoInfo.photoDescription}
+          </div>
+          <Link 
+            className="infoButton" 
+            to={{ pathname: "/info", photoData: photoInfo }}
+            >
             More Info
           </Link>
-          
         </div>
-
       </div>
     </div>
   )
 }
+
+export default PhotoCard;

@@ -5,23 +5,24 @@ import axios from 'axios';
 import {url} from '../../api';
 
 import AddPhoto from './addPhoto';
+import AlertDismissable from './AlertDismissable';
 import ShowPhotos from './IndexPhotos';
 import "./admin.css"
 import IndexPhotos from './IndexPhotos';
 
 export default function Admin() {
   const [photos, setPhotos] = useState();
-  const [uploadResponse, setUploadResponse] = useState("");
+  const [uploadResponse, setUploadResponse] = useState(null);
+  const [checkPhotos, setCheckPhotos] = useState(false);
+
 
   useEffect(() => {
     const getPhotos = async () => {
       const retrievedPhotos = await axios.get(`${url}/photos`);
-
       setPhotos(retrievedPhotos.data.allPhotos);
     }
      getPhotos();
-
-  }, [uploadResponse])
+  }, [uploadResponse, checkPhotos])
 
 
 
@@ -44,28 +45,18 @@ export default function Admin() {
             </button>
         </div>
       </nav>
-
       <div className="container">
-        <div 
-          className={`alert ${uploadResponse === "Photo sucessfully uploaded!" ? "alert-info" : "alert-danger"} alert-dismissible fade ${uploadResponse === "" ? "hide" : "show"}`} 
-          role="alert">
-          {uploadResponse}
-          <button 
-            type="button" 
-            className="btn-close" 
-            data-bs-dismiss="alert" 
-            aria-label="Close"
-          ></button>
-        </div>
-        <AddPhoto uploadResponse={UR => setUploadResponse(UR)}/>
-
-
-
-
-        
+        <AlertDismissable 
+          condition={uploadResponse}
+          message={uploadResponse}
+          />
+        <AddPhoto 
+          uploadResponse={UR => setUploadResponse(UR)}
+          addedPhoto={e => setCheckPhotos(false)}
+          photoUploaded={e => setCheckPhotos(true)}
+        />        
       </div>
     <IndexPhotos photos={photos}/>
-      
     </div>
   )
 }

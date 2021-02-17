@@ -1,26 +1,28 @@
 .photocard {
   display: flex;
+  margin: 1em;
   flex-direction: row;
   flex-wrap: wrap;
+  flex: 40em;
   justify-content: center;
   position: relative;
-  min-width: 50%;
-  height: 30em;
-  background-color: rgba(12, 12, 12, 0.281);
+  /* min-width: 25em; */
+  min-height: 30em;
+  /* background-color: rgba(12, 12, 12, 0.281); */
   font-family: Roboto;
   overflow: hidden;
+  box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.329);
+  border-radius: 5px;
 }
 
 a {
   text-decoration: none;
 }
 
-
 .image {
   width: 100%;
-  background-image: url(https://ocmain.s3-us-west-1.amazonaws.com/Ethan+Cowsky/FINALLY+BACK.png);
-  /* background-size: contain; */
-  transition: .25s ease-in-out; 
+  background-size: contain;
+  transition: .35s ease-in-out; 
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -28,8 +30,8 @@ a {
 
 .image:hover {
   /* transform: scale(1.25);*/
-  transition: .25s ease-in-out; 
-  background-size: 120%;
+  transition: .35s ease-in-out; 
+  background-size: 150%;
 }
 
 .info {
@@ -37,13 +39,19 @@ a {
   opacity: 0;
   width: 100%;
   height: 100%;
-}
-
-.info:hover {
   opacity: 1;
   transition: .25s;
   clip-path: polygon(100% 0, 0% 100%, 100% 100%);
   background-color: rgba(146, 145, 145, 0.459);
+
+
+}
+
+.info:hover {
+  /* opacity: 1;
+  transition: .25s;
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  background-color: rgba(146, 145, 145, 0.459); */
 }
 
 .infoText {
@@ -51,40 +59,47 @@ a {
   color: white;
   max-width: 30%;
   font-weight: 300;
-  bottom: 25%;
-  right: 15%;
+  bottom: 10%;
+  right: 25%;
+}
+
+.infoTitle{
+  position: absolute;
+  color: white;
+  max-width: 40%;
+  font-weight: 600;
+  font-size: large;
+  bottom: 45%;
+  right: 5%;
 }
 
 .infoButton {
   position: absolute;
   bottom: 10%;
   right: 5%;
-  border-radius: 25px;
+  border-radius: 2px;
   padding: 0.75em;
   background-color: #c4c4c4;
   border: none;
   color:white;
-  text-shadow: 1px 1px #252525;
+  text-shadow: 1px 1px #25252552;
   transition: .1s;
 
 }
 
 .infoButton:hover {
-  box-shadow: inset 0 0 15px rgb(0, 0, 0);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.664);
   transition: .25s;
-  transform: scale(1.1);
-  /* color: black; */
-  /* background-color: white; */
-
+  /* transform: scale(1.1); */
 }
 
+
+
 @media screen and (max-width:1000px){
-  
   .info {
     opacity: 1;
     transition: .25s;
     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
     background-color: rgba(146, 145, 145, 0.459);
   }
-  
 }

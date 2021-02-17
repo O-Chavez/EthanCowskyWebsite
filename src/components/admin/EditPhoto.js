@@ -2,15 +2,19 @@ import React, {useState} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
+import AlertDismissable from "./AlertDismissable";
+
 import {url} from '../../api';
 
  const EditPhoto = ( props ) => {
 
   const history = useHistory();
 
-  const [photoName, setPhotoName] = useState("");
-  const [photoDescription, setPhotoDescription] = useState("");
-  const [photoPrice, setPhotoPrice] = useState("");
+  const [photoName, setPhotoName] = useState(props.location.PhotoInfo.photoName);
+  const [photoDescription, setPhotoDescription] = useState(props.location.PhotoInfo.photoDescription);
+  const [photoPrice, setPhotoPrice] = useState(props.location.PhotoInfo.photoPrice);
+  const [editResponse, setEditResponse] = useState();
+  const [editMessage, setEditMessage] = useState("");
 
 
   const handleDelete = (e) => {
@@ -20,13 +24,19 @@ import {url} from '../../api';
 
   }
 
-  const handleEdit = (e) => {
+  const handleEdit = async (e) => {
     e.preventDefault();
-    axios.put(`${url}/photos/edit/${props.location.PhotoInfo._id}`);
-    history.push('/admin');
-  }
+    const editResponse = await axios.put(`${url}/photos/edit/${props.location.PhotoInfo._id}`, {photoName, photoDescription, photoPrice});
 
-  console.log(props.location.PhotoInfo._id)
+    if(editResponse.status === 200){
+      setEditResponse(200);
+
+      history.push('/admin');
+    } else {
+      setEditResponse(412);
+      setEditMessage("Hmm... Somthing went wrong...");
+    }
+  }
 
   return (
     <div>
@@ -47,7 +57,9 @@ import {url} from '../../api';
         </div>
       </nav>
 
-      
+      <AlertDismissable 
+        condition={editResponse}
+        message={editMessage}/>
 
       <div className="container mt-3">
       <Link 
@@ -87,29 +99,25 @@ import {url} from '../../api';
             </span>
           <input 
             className="form-control"
-            type="text"
+            type="number"
             placeholder={`$${props.location.PhotoInfo.photoPrice}`}
             onChange={e => setPhotoPrice(e.target.value)}></input>
           </div>
 
-          
-
-        
-
-          
-          
         </form>
         <button 
             className="btn btn-primary m-2"
             onClick={e => handleEdit(e)}
-            >Edit</button>
-          <button 
-            className="btn btn-danger m-2"
-            onClick={e => handleDelete(e)}
-            >Delete</button>
+            >Edit
+        </button>
+
+        <button 
+          className="btn btn-danger m-2"
+          onClick={e => handleDelete(e)}
+          >Delete
+        </button>
       </div>
     </div>
- 
   )
 }
 export default EditPhoto;

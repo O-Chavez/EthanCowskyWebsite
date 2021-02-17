@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-export default function header() {
+export default function Header() {
   return (
     
-    <nav className="landingNav navbar navbar-dark bg-dark">
+    <nav className="landingNav navbar navbar-dark bg-dark sticky-top">
       <div className="container-fluid mx-5">
         <Link 
         to="/"

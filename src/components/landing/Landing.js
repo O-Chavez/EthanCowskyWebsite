@@ -7,17 +7,17 @@ export default function Landing() {
   const [hovered, setHovered] = useState("");
 
   let TOP_LEFT = {
-    backgroundImage: "url('https://images.unsplash.com/photo-1496000844600-c1bb7d704835?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')",
+    backgroundImage: "url('https://d147gc4b3ckpsg.cloudfront.net/filters:quality(40)/filters:format(jpeg)/uploads/We Have Been Waiting For You.png')",
     // clipPath: "polygon(100vw 0, 0% 100vh, 100vw 100vh)"
   }
 
   let BOTTOM_RIGHT = {
-    backgroundImage: "url('https://images.unsplash.com/photo-1471009544976-30d2142adb6b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80')",
+    backgroundImage: "url('https://d147gc4b3ckpsg.cloudfront.net/filters:quality(40)/filters:format(jpeg)/uploads/Hi Mom.png')",
     clipPath: "polygon(100vw 0, 0% 100vh, 100vw 100vh)"
   }
 
   let BOTTOM_CENTER = {
-    backgroundImage: "url('https://images.unsplash.com/photo-1495306765622-7639a965c271?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80')",
+    backgroundImage: "url('https://d147gc4b3ckpsg.cloudfront.net/filters:quality(40)/filters:format(jpeg)/uploads/Finally Back.png')",
     clipPath: "polygon(100vw 0, 50% 50vh, 100vw 100vh)",
   }
  
@@ -51,23 +51,6 @@ export default function Landing() {
         </ul>
       </div>
 
-      <nav className="landingNav navbar navbar-dark bg-dark">
-      <div className="container-fluid mx-5">
-        <Link to="/"
-          className="navbar-text text-white w-30 my-auto">
-          Ethan Cowsky
-        </Link>
-          <a 
-            href="https://www.instagram.com/ethancowsky/?hl=en" target="_blank" rel="noreferrer" 
-            className="fs-4 text-white w-30">
-              <i className="fab fa-instagram"></i>
-          </a>
-          <p 
-            className="navbar-text text-white w-30 my-auto">
-            3D Rendering
-          </p>
-      </div>
-  </nav>
 
       <div>
         <button 

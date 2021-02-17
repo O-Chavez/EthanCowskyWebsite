@@ -1,44 +1,47 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { url } from '../../api';
 
 import "./index.css";
 
 import PhotoCard from "./PhotoCard"
+import Header from '../partials/Header';
 
-export default function index() {
+  const Index = () => {
+
+    const [photos, setPhotos] = useState();
+
+  useEffect(() => {
+    const getPhotos = async () => {
+      const retrievedPhotos = await axios.get(`${url}/photos`);
+      setPhotos(retrievedPhotos.data.allPhotos.reverse());
+    }
+     getPhotos();
+  }, [])
+
+  const photoList = () => {
+    if(photos) {
+      return (
+        photos.map(photo => 
+          <PhotoCard 
+            photoInfo={photo}
+            key={photo._id}
+          />
+        )
+      )
+    }
+  }
+
+
   return (
     <div className="index">
-
-    <nav className="landingNav navbar navbar-dark bg-dark">
-      <div className="container-fluid mx-5">
-        <Link to="/"
-          className="navbar-text text-white w-30 my-auto">
-          Ethan Cowsky
-        </Link>
-          <a 
-            href="https://www.instagram.com/ethancowsky/?hl=en" target="_blank" rel="noreferrer" 
-            className="fs-4 text-white w-30">
-              <i className="fab fa-instagram"></i>
-          </a>
-          <p 
-            className="navbar-text text-white w-30 my-auto">
-            3D Rendering
-          </p>
-      </div>
-    </nav>
-
-      <div className="container d-flex photos">
-        
-        <PhotoCard />
-        <PhotoCard />
-        <PhotoCard />
-        <PhotoCard />
-        <PhotoCard />
-        <PhotoCard />
-        <PhotoCard />
-        <PhotoCard />
-
+      <Header/>
+      <div className="d-flex photos">
+        {photoList()}
       </div>
     </div>
   )
 }
+
+
+export default Index;

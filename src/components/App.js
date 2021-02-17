@@ -3,9 +3,9 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import LandingPage from './landing/Landing';
-import Header from "./partials/header";
+// import Header from "./partials/Header";
 import Show from "./show/show";
-import Index from "./index/index";
+import Index from "./index/Index";
 import Admin from './admin/admin';
 import AdminEdit from './admin/EditPhoto';
 
