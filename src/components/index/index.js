@@ -36,6 +36,19 @@ import Header from '../partials/Header';
   return (
     <div className="index">
       <Header/>
+
+      <div 
+        className="text-white my-5 d-flex align-items-center justify-content-center w-100 top_banner">
+          <hr className="w-25 d-block"></hr>
+          <p className="flex-fill text-center">Contact Me</p>
+          <h3 className="flex-fill text-center">My Work</h3>
+          <p className="flex-fill text-center">Contact Me</p>
+          <hr className="w-25 d-block"></hr>
+
+      </div>
+
+
+      
       <div className="d-flex photos">
         {photoList()}
       </div>

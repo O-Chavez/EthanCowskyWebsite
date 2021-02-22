@@ -1,12 +1,22 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
+import Footer from '../partials/Footer';
+
+import CardField from '../stripe/CardField';
+import CheckoutForm from '../stripe/CheckoutForm';
+
+
+
 import "./show.css";
+
+
 
 const Show = ( props ) => {
   const photoData = props.location.photoData;
 
   const [imgHeight, setImgHeight] = useState("");
   const [imgWidth, setImgWidth] = useState("");
+
 
   const img = new Image();
   img.onload = () => {
@@ -61,6 +71,8 @@ const Show = ( props ) => {
 
       <div className="buyBanner">
         <div className="buyInfo">
+
+        Price: ${photoData.photoPrice}
       </div>
 
 
@@ -73,9 +85,11 @@ const Show = ( props ) => {
             className="buyBtn text-center">
               Buy 
               <br></br>
-            <i class="fab fa-cc-paypal"></i>
+              <i class="fab fa-cc-stripe"></i>
         </Link>
       </div>
+   
+      <CheckoutForm />
     </div>
     </div>
   )

@@ -9,6 +9,9 @@
 .landingNav {
   opacity: .8;
 }
+.top_banner{
+  text-shadow: 3px 5px 12px rgba(0, 0, 0, 0.329); 
+}
 
 .photos {
   display: flex;
@@ -16,17 +19,12 @@
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  margin: 1em;
+  margin: 1em 1em 0 1em;
   /* max-width: 1750px!important; */
 }
 
 
 @media screen and (max-width:1300px){
   
-  .photos {
-    /* display: flex;
-    flex-direction: column; */
-    width: 80%;
-  }
   
 }
