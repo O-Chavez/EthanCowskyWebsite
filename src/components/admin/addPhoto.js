@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import ProgressBar from './Progress';
 
-import { url } from '../../api';
+import { api } from '../../api';
 
 const AddPhoto = ({ uploadResponse, photoUploaded, addedPhoto }) => {
   const [photoFile, setPhotoFile] = useState('');
@@ -34,7 +34,7 @@ const AddPhoto = ({ uploadResponse, photoUploaded, addedPhoto }) => {
         formData.append("photoDescription", photoDescription);
         formData.append("photoPrice", photoPrice);
       const res = await axios({
-        url: `/photos/upload`,
+        api: `/photos/upload`,
         method: "post",
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -43,7 +43,7 @@ const AddPhoto = ({ uploadResponse, photoUploaded, addedPhoto }) => {
           setUploadPercentage(parseInt(Math.round((progressEvent.loaded * 100) / progressEvent.total)))
         },
         // headers: {"x-auth-token": userData.token},
-        baseURL: `${url}`,
+        baseURL: `${api}`,
         data: formData
       });
       const { showImg } = res.data.photo;

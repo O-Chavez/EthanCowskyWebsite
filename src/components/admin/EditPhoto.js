@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import AlertDismissable from "./AlertDismissable";
 
-import {url} from '../../api';
+import {api} from '../../api';
 
  const EditPhoto = ( props ) => {
 
@@ -19,14 +19,14 @@ import {url} from '../../api';
 
   const handleDelete = (e) => {
     e.preventDefault();
-    axios.delete(`${url}/photos/delete/${props.location.PhotoInfo._id}`);
+    axios.delete(`${api}/photos/delete/${props.location.PhotoInfo._id}`);
     history.push('/admin');
 
   }
 
   const handleEdit = async (e) => {
     e.preventDefault();
-    const editResponse = await axios.put(`${url}/photos/edit/${props.location.PhotoInfo._id}`, {photoName, photoDescription, photoPrice});
+    const editResponse = await axios.put(`${api}/photos/edit/${props.location.PhotoInfo._id}`, {photoName, photoDescription, photoPrice});
 
     if(editResponse.status === 200){
       setEditResponse(200);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { url } from '../../api';
+import { api } from '../../api';
 
 import "./index.css";
 
@@ -13,7 +13,7 @@ import Header from '../partials/Header';
 
   useEffect(() => {
     const getPhotos = async () => {
-      const retrievedPhotos = await axios.get(`${url}/photos`);
+      const retrievedPhotos = await axios.get(`${api}/photos`);
       setPhotos(retrievedPhotos.data.allPhotos.reverse());
     }
      getPhotos();

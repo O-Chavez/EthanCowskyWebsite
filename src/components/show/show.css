@@ -56,8 +56,9 @@ hr {
 .title {
   position: absolute;
   right: 5%;
-  top: 40%;
-  width: 30%;
+  top: 45%;
+  width: 25%;
+  font-size: 2em;
   color: white;
 }
 
@@ -65,12 +66,19 @@ hr {
   position: absolute;
   width: 40%;
   right: 5%;
-  bottom: 10%;
+  bottom: 15%;
 }
 
 .description p {
   color: white;
-  font-size: large;
+  font-size: 1.5em;
+}
+
+.resolution{
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  color: white;
 }
 
 .buyBanner {
@@ -82,11 +90,11 @@ hr {
 }
 
 .buyInfo {
-  width: 80%;
+  width: 100%;
   color: white;
   align-self: center;
   justify-content: center;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .buyInfo p {

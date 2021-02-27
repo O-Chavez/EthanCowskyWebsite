@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
 import axios from 'axios';
-import {url} from '../../api';
+import {api} from '../../api';
 
 import AddPhoto from './addPhoto';
 import AlertDismissable from './AlertDismissable';
@@ -18,7 +18,7 @@ export default function Admin() {
 
   useEffect(() => {
     const getPhotos = async () => {
-      const retrievedPhotos = await axios.get(`${url}/photos`);
+      const retrievedPhotos = await axios.get(`${api}/photos`);
       setPhotos(retrievedPhotos.data.allPhotos);
     }
      getPhotos();

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 import { api } from '../../api';
@@ -7,6 +8,22 @@ import { api } from '../../api';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 import './CardField.css';
+
+const BG_STYLE = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  position: "fixed", /* Stay in place */
+  zIndex: 60, /* Sit on top */
+  left: 0,
+  top: 0,
+  right: 0,
+  bottom: 0,
+  width: "100%", /* Full width */
+  height: "100%",/* Full height */
+  backgroundColor: "rgba(0, 0, 0, 0.6)" /* Black w/ opacity */
+ 
+}
 
 const CARD_OPTIONS = {
   iconStyle: 'solid',
@@ -28,7 +45,7 @@ const CARD_OPTIONS = {
   },
 };
 
-const CheckoutForm = ({ price, onSucessfullCheckout }) => {
+const CheckoutForm = ({ price, onSucessfullCheckout, open, onClose }) => {
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
 
@@ -75,27 +92,47 @@ const CheckoutForm = ({ price, onSucessfullCheckout }) => {
     onSucessfullCheckout();
   };
 
-  return (
-    <form className="FormGroup" onSubmit={handleSubmit}>
-      <div className="FormRow">
-        <label for="name" className="FormRowLabel">Name</label>
-        <input type="text" id="name" placeholder="Bilbo Baggins" className="formRowInput"></input>
-      </div>
-      <div className="FormRow">
-        <label for="email" className="FormRowLabel">Email</label>
-        <input type="text" id="email" placeholder="ring_carrier@fellowship.com" className="formRowInput"></input>
-      </div>
-
-      <div className="FormRow">
-        <CardElement options={CARD_OPTIONS} />
-      </div>
-
-      <button type="submit" disabled={!stripe || isProcessing}>
-        {isProcessing ? "Processing..." : `Pay $${price}`}
+  if(!open){
+    return null;
+  } else {
+    return ReactDOM.createPortal (
+    <div style={BG_STYLE}>
+    
+      <form className="FormGroup" onSubmit={handleSubmit}>
+      <button
+        onClick={() => onClose(false)}
+        className="closeBtn"
+        >
+        <i class="far fa-times-circle"></i>
       </button>
       
-    </form>
+        <div className="FormRow">
+          <label for="name" className="FormRowLabel">Name</label>
+          <input type="text" id="name" placeholder="Bilbo Baggins" className="formRowInput"></input>
+        </div>
+        <div className="FormRow">
+          <label for="email" className="FormRowLabel">Email</label>
+          <input type="text" id="email" placeholder="ring_carrier@fellowship.com" className="formRowInput"></input>
+        </div>
+
+        <div className="FormRow">
+          <CardElement options={CARD_OPTIONS} />
+        </div>
+
+        <button 
+          type="submit" 
+          disabled={!stripe || isProcessing}
+          className="payBtn">
+          {isProcessing ? "Processing..." : `Pay $${price}`}
+        </button>
+        
+      </form>
+    </div>,
+    document.querySelector('#modal')
   );
+  }
+
+  
 };
 
 export default CheckoutForm;

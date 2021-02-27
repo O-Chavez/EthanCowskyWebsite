@@ -1,5 +1,7 @@
 .FormGroup {
-  margin: 0 15px 20px;
+  position: relative;
+  width: 50%;
+  margin: auto;
   padding: 0;
   border-style: none;
   background-color: #383838;
@@ -15,6 +17,7 @@
   -ms-flex-align: center;
   align-items: center;
   margin-left: 15px;
+  padding: .75em;
   border-top: 1px solid #252525;
 }
 
@@ -25,4 +28,71 @@
 .StripeElement {
   width: 100%;
   padding: 11px 15px 11px 0;
+}
+
+.FormRowLabel{
+  color: #c4f0ff;
+  font-size: '16px';
+}
+
+.formRowInput{
+  background-color: #383838;
+  border: none;
+  margin-left: 5px;
+  padding: 5px;
+  width: 100%;
+  font-weight: 500;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  outline: none;
+}
+
+::placeholder{
+  color: #87bbfd;
+  font-weight: 500;
+}
+
+.payBtn{
+  background-color: #87bbfd;
+  padding: .5em 1em .5em 1em;
+  margin: 1em;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 6px 9px rgba(0, 0, 0, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 #252525;
+}
+
+.payBtn:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.closeBtn{
+  position: absolute;
+  background-color: inherit;
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  padding: .5em;
+  margin: .75em;
+  border: none;
+  right: 0em;
+  top: 0em;
+  width: 2em;
+  height: 2em;
+  font-size: large;
+  color: grey;
+  transition: .25s;
+}
+button:not(:disabled) {
+  cursor: pointer;
+  outline: none;
+}
+.closeBtn:hover{
+  color: #87bbfd;
+  background-color: #303030;
+  box-shadow: inset 2px 1px 4px rgba(0, 0, 0, 0.178);
+  transition: .25s;
 }

@@ -29,7 +29,6 @@ a {
 }
 
 .image:hover {
-  /* transform: scale(1.25);*/
   transition: .35s ease-in-out; 
   background-size: 150%;
 }
@@ -43,17 +42,7 @@ a {
   transition: .25s;
   clip-path: polygon(100% 0, 0% 100%, 100% 100%);
   background-color: rgba(146, 145, 145, 0.459);
-
-
 }
-
-.info:hover {
-  /* opacity: 1;
-  transition: .25s;
-  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-  background-color: rgba(146, 145, 145, 0.459); */
-}
-
 .infoText {
   position: absolute;
   color: white;
@@ -63,7 +52,6 @@ a {
   right: 25%;
   text-shadow: 2px 2px #00000088;
   font-size: calc(0.4em + 1vmin);
-
 }
 
 .infoTitle{
@@ -88,14 +76,13 @@ a {
   border: none;
   color:white;
   text-shadow: 1px 1px #25252552;
-  transition: .1s;
+  transition: .25s;
 
 }
 
 .infoButton:hover {
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.664);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.753);
   transition: .25s;
-  /* transform: scale(1.1); */
 }
 
 
@@ -104,11 +91,14 @@ a {
   .photocard{
     height: 25em;
   }
-
   .image {
-    background-size: 150%;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    transition: .35s;
+  }
+  .image:hover {
+    background-size: cover;
   }
   .info {
     opacity: 1;
@@ -116,10 +106,15 @@ a {
     clip-path: polygon(100% 0, 0% 100%, 100% 100%);
     background-color: rgba(146, 145, 145, 0.459);
   }
+  .infoTitle{
+    bottom: 25%;
+    right: 10%
+  }
   .infoText {
-    font-weight: 300;
-    bottom: 10%;
-    right: 30%;
-  
+    display: none;
+  }
+  .infoButton{
+    bottom: 5%;
+    padding: 0.5em;
   }
 }

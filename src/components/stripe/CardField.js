@@ -27,12 +27,9 @@ const CARD_OPTIONS = {
 export default function CardField() {
 
   return (
-  <fieldset className="FormGroup">
+    <fieldset className="FormGroup">
     <div className="FormRow">
-      <CardElement options={CARD_OPTIONS} />
-      <button type="submit">
-      Pay
-    </button>
+      <CardElement options={CARD_OPTIONS}  />
     </div>
   </fieldset>
   )

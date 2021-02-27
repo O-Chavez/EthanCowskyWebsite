@@ -2,35 +2,31 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import Footer from '../partials/Footer';
 
-import CardField from '../stripe/CardField';
-import CheckoutForm from '../stripe/CheckoutForm';
-
-
+import CardFieldModal from '../stripe/CardFieldModal';
 
 import "./show.css";
-
-
 
 const Show = ( props ) => {
   const photoData = props.location.photoData;
 
   const [imgHeight, setImgHeight] = useState("");
   const [imgWidth, setImgWidth] = useState("");
-
+  const [openModal, setOpenModal] = useState(false);
 
   const img = new Image();
   img.onload = () => {
-
     const height = img.height;
     const width = img.width;
     setImgHeight(height);
     setImgWidth(width);
-    // console.log("ratio", width / height )
   }
     
   img.src = photoData.showImg;
 
-  // console.log(imgHeight)
+  const onSucessfullCheckout = () => {
+    alert("Ey yoooooo it worked boss!")
+  }
+
   return (
     <div className="showDiv">
       <nav className="landingNav navbar navbar-dark bg-dark">
@@ -52,11 +48,9 @@ const Show = ( props ) => {
       </nav>
     
     <div className="showContent container">
-
         <Link to="/mywork" className="backArrow text-center">
           <i class="fas fa-arrow-left"></i>
         </Link>
-      
       <div 
         className="mainImage" 
         style={{ backgroundImage: `url('${photoData.showImg}')`}}>
@@ -65,33 +59,46 @@ const Show = ( props ) => {
               <div className="description">
                 <p>{photoData.photoDescription}</p>
               </div>
+              <div className="resolution">
+                Resolution: {imgWidth}x{imgHeight}
+              </div>
+
           </div>
         </div>
         <hr></hr>
 
       <div className="buyBanner">
+
         <div className="buyInfo">
+          Price: ${photoData.photoPrice}
+        </div>
 
-        Price: ${photoData.photoPrice}
-      </div>
 
+        
 
-        <p style={{color: "red"}}>
-          Resolution: {imgWidth}x{imgHeight}
-        </p>
-
-        <Link 
+        <button 
             to="#" 
-            className="buyBtn text-center">
+            className="buyBtn text-center"
+            onClick={() => setOpenModal(true)}
+            >
               Buy 
               <br></br>
               <i class="fab fa-cc-stripe"></i>
-        </Link>
+        </button>
       </div>
    
-      <CheckoutForm />
+      
     </div>
+
+    <CardFieldModal 
+      price={photoData.photoPrice}
+      onSucessfullCheckout={onSucessfullCheckout}
+      open={openModal}
+      onClose={() => setOpenModal(false)}
+      
+      />
     </div>
   )
 }
+
 export default Show;
