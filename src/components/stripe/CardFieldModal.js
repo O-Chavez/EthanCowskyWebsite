@@ -32,6 +32,7 @@ const CARD_OPTIONS = {
       iconColor: '#c4f0ff',
       color: '#fff',
       fontWeight: 500,
+      border:"red",
       fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
       fontSize: '16px',
       fontSmoothing: 'antialiased',
@@ -45,9 +46,10 @@ const CARD_OPTIONS = {
   },
 };
 
-const CheckoutForm = ({ price, onSucessfullCheckout, open, onClose }) => {
+const CheckoutForm = ({ photoData, sucessfullCheckout, open, onClose }) => {
   const [isProcessing, setProcessingTo] = useState(false);
-  const [checkoutError, setCheckoutError] = useState();
+  const [checkoutResponse, setCheckoutResponse] = useState();
+  const [purchasedPhotoRes, setPurchasedPhotoRes] = useState("");
 
   const stripe = useStripe();
   const elements = useElements();
@@ -55,12 +57,10 @@ const CheckoutForm = ({ price, onSucessfullCheckout, open, onClose }) => {
   const handleSubmit = async (event) => {
     // Block native form submission.
     event.preventDefault();
-
     const billingDetails = {
         name: event.target.name.value,
         email: event.target.email.value,
     }
-
     if (!stripe || !elements) {
       // Stripe.js has not loaded yet. Make sure to disable
       // form submission until Stripe.js has loaded.
@@ -71,48 +71,112 @@ const CheckoutForm = ({ price, onSucessfullCheckout, open, onClose }) => {
 
     const { data: clientSecret } = await axios.post(`${api}/payment/test`, {
       // amount is in lowest denomination, $1 = 100 (cents)
-      amount: price * 100
+      amount: photoData.photoPrice * 100,
+      description: photoData.photoName
     });
 
     // Get a reference to a mounted CardElement.
     const cardElement = elements.getElement(CardElement);
 
-    const paymentMethodReq = await stripe.createPaymentMethod({
+    const {paymentMethod, error} = await stripe.createPaymentMethod({
       type: 'card',
       card: cardElement,
       billing_details: billingDetails
     });
 
-    const confirmedCardPayment = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: paymentMethodReq.paymentMethod.id,
-    });
-
-    console.log(confirmedCardPayment);
-
-    onSucessfullCheckout();
+    if (error) {
+      return (
+        setCheckoutResponse(error.message),
+        setProcessingTo(false)
+      )
+    } else {
+       const confirmedCardPayment = await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: cardElement,
+          billing_details: billingDetails
+        },
+        receipt_email: billingDetails.email
+      });
+  
+      if(confirmedCardPayment.paymentIntent.status === "succeeded"){
+        try {
+        const purchasedPhoto = await axios.get(`${api}/photos/purchase/${photoData._id}`);
+        setCheckoutResponse("Success!");
+        setPurchasedPhotoRes(purchasedPhoto.data.purchasedPhoto.file);
+        sucessfullCheckout(purchasedPhoto.data);
+        // onClose(false);
+        } catch (error) {
+          setCheckoutResponse("somthing went wrong...");
+        }
+        
+      } else {
+        setCheckoutResponse(confirmedCardPayment.paymentIntent.status)
+      }
+    }
   };
+
+  const handleClose = () => {
+    if(purchasedPhotoRes === ""){
+      onClose(false);
+      document.getElementById("myForm").reset();
+      setCheckoutResponse(null);
+      setProcessingTo(false);
+    } else {
+      onClose(false);
+      setCheckoutResponse(null);
+      setProcessingTo(false);
+    }
+  }
+ 
+  const HandleResponse = ({ checkoutResponse }) => {
+    if(!checkoutResponse){
+      return null;
+    } else {
+      if(checkoutResponse === "Success!"){
+      return (
+        <p style={{ color: "green"}}>{checkoutResponse}</p>
+      )
+      } else {
+        return (
+          <p style={{ color: "#ffc7ee"}}>{checkoutResponse}</p>
+        )
+      }
+    }
+  }
 
   if(!open){
     return null;
-  } else {
+  } else if (purchasedPhotoRes === "") {
     return ReactDOM.createPortal (
     <div style={BG_STYLE}>
     
-      <form className="FormGroup" onSubmit={handleSubmit}>
+      <form 
+      className="FormGroup" 
+        onSubmit={handleSubmit}
+        id="myForm">
       <button
-        onClick={() => onClose(false)}
+        onClick={handleClose}
         className="closeBtn"
         >
         <i class="far fa-times-circle"></i>
       </button>
       
         <div className="FormRow">
-          <label for="name" className="FormRowLabel">Name</label>
-          <input type="text" id="name" placeholder="Bilbo Baggins" className="formRowInput"></input>
+          <label htmlfor="name" className="FormRowLabel">Name</label>
+          <input 
+            type="text" 
+            id="name" 
+            required 
+            placeholder="Bilbo Baggins" 
+            className="formRowInput"></input>
         </div>
         <div className="FormRow">
-          <label for="email" className="FormRowLabel">Email</label>
-          <input type="text" id="email" placeholder="ring_carrier@fellowship.com" className="formRowInput"></input>
+          <label htmlfor="email" className="FormRowLabel">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            required
+            placeholder="ring_carrier@fellowship.com" className="formRowInput"></input>
         </div>
 
         <div className="FormRow">
@@ -123,16 +187,38 @@ const CheckoutForm = ({ price, onSucessfullCheckout, open, onClose }) => {
           type="submit" 
           disabled={!stripe || isProcessing}
           className="payBtn">
-          {isProcessing ? "Processing..." : `Pay $${price}`}
+          {isProcessing ? "Processing..." : `Pay $${photoData.photoPrice}`}
         </button>
-        
+        <HandleResponse 
+          checkoutResponse={checkoutResponse}/>
       </form>
     </div>,
     document.querySelector('#modal')
   );
+  } else {
+    return (
+      <div style={BG_STYLE}>
+        <div className="FormGroup p-5">
+          <button
+            onClick={handleClose}
+            className="closeBtn">
+          <i class="far fa-times-circle"></i>
+          </button>
+          <p className="text-white">Thank you for your purchase!</p>
+          <a 
+            className="btn btn-primary m-4"
+            href={`${purchasedPhotoRes}`} 
+            download
+            target="_blank"
+            rel="noreferrer"
+            >
+            Get Full Resolution Image</a>
+            <p className="text-white">Once you click the button, right click on the full resolution image and select "save image as..." and choose where you want your image saved!</p>
+        </div>
+      </div>
+    )
+    
   }
-
-  
 };
 
 export default CheckoutForm;

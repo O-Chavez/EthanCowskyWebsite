@@ -1,7 +1,7 @@
 .admin {
   height: 100%;
   width: 100%;
-  /* background-color: red; */
+  background-color: rgba(128, 128, 128, 0.295);
 }
 
 .photoUpload {

@@ -23,7 +23,7 @@ import "./PhotoCard.css"
           </div>
           <Link 
             className="infoButton" 
-            to={{ pathname: "/info", photoData: photoInfo }}
+            to={{ pathname: `/info:${photoInfo.photoName}`, photoData: photoInfo }}
             >
             More Info
           </Link>

@@ -51,7 +51,6 @@ export default function Landing() {
         </ul>
       </div>
 
-
       <div>
         <button 
           className={`boxes contactMe ${hovered === "Contact Me" ? 'hovered' : ''}`} 
@@ -84,6 +83,8 @@ export default function Landing() {
           </a>
         </div>
       </a>
+
+      <Link to="/admin" className="adminLink">Admin</Link>
     </div>
   )
 }

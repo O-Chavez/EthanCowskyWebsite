@@ -15,6 +15,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 10px;
 }
 
 .adminTitle{
@@ -22,7 +23,8 @@
   height: 20%;
   background-color: rgba(146, 146, 146, 0.637);
   justify-content: center;
-  margin: .5em .5em 0 .5em;
+  margin: .5em;
+  border-radius: 10px 10px 0 0;
 }
 
 .admininfo{
@@ -31,7 +33,8 @@
   width: 98%;
   height: 30%;
   background-color: rgba(146, 146, 146, 0.637);
-  margin: 0 .5em .5em .5em;
+  margin: .5em;
+  border-radius: 0 0 10px 10px;
 }
 
 .adminDescription{

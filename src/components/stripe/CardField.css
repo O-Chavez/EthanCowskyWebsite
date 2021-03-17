@@ -9,6 +9,7 @@
   box-shadow: 0 6px 9px rgba(0, 0, 0, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 #252525;
   border-radius: 4px;
+  text-align: center;
 }
 
 .FormRow {
@@ -16,9 +17,9 @@
   display: flex;
   -ms-flex-align: center;
   align-items: center;
-  margin-left: 15px;
+  margin: 0 15px 0 15px ;
   padding: .75em;
-  border-top: 1px solid #252525;
+  border-bottom: 1px solid #252525;
 }
 
 .StripeElement--webkit-autofill {
@@ -59,7 +60,13 @@
   border: none;
   border-radius: 25px;
   box-shadow: 0 6px 9px rgba(0, 0, 0, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 #252525;
+    ;
+  transition: 0.25s;
+}
+.payBtn:hover{
+  box-shadow: inset 1px 1px 5px #383838;
+  transition: 0.25s;
+
 }
 
 .payBtn:disabled,
@@ -74,7 +81,7 @@ button[disabled]{
   background-color: inherit;
   display: flex;
   align-items: center;
-  border-radius: 25px;
+  border-radius: 5px;
   padding: .5em;
   margin: .75em;
   border: none;
@@ -93,6 +100,6 @@ button:not(:disabled) {
 .closeBtn:hover{
   color: #87bbfd;
   background-color: #303030;
-  box-shadow: inset 2px 1px 4px rgba(0, 0, 0, 0.178);
+  box-shadow: inset 2px 1px 4px rgba(20, 20, 20, 0.178);
   transition: .25s;
 }

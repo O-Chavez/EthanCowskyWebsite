@@ -13,7 +13,7 @@
 }
 
 .hovered {
-  border-radius: 50px;
+  border-radius: 25px;
   box-shadow: none !important;
   transition: .5s;
   transform: scale(1.1)
@@ -47,8 +47,21 @@ a:hover {
   background-size: cover;
   background-position: center;
   transition: .5s;
-
 } 
+
+.adminLink{
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+  color: white;
+  padding: 1em;
+  border-radius: 10px;
+  transition: .5s;
+}
+
+.adminLink:hover{
+  box-shadow: inset 2px 4px 20px rgba(20, 20, 20, 0.712);
+}
 
 .boxes {
   position: absolute !important;

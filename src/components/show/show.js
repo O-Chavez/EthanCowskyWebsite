@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from "react-router-dom";
 import Footer from '../partials/Footer';
 
 import CardFieldModal from '../stripe/CardFieldModal';
@@ -7,24 +7,39 @@ import CardFieldModal from '../stripe/CardFieldModal';
 import "./show.css";
 
 const Show = ( props ) => {
+  const history = useHistory();
   const photoData = props.location.photoData;
 
   const [imgHeight, setImgHeight] = useState("");
   const [imgWidth, setImgWidth] = useState("");
   const [openModal, setOpenModal] = useState(false);
+  const [tempPhotoData, setTempPhotoData] = useState();
 
-  const img = new Image();
-  img.onload = () => {
-    const height = img.height;
-    const width = img.width;
-    setImgHeight(height);
-    setImgWidth(width);
-  }
+  useEffect(()=> {
+    const photoInformationToUse = window.localStorage.getItem("photo-information");
+
+    setTempPhotoData(photoInformationToUse)
+  }, [])
+  useEffect(() => {
+    window.localStorage.setItem("photo-information", photoData);
+  })
+
+  if(!props.location.photoData){
+    return history.goBack();
+   
+  } else {
+    const img = new Image();
+
+    img.onload = () => {
+      setImgHeight(img.height);
+      setImgWidth(img.width);
+    }
     
   img.src = photoData.showImg;
-
-  const onSucessfullCheckout = () => {
-    alert("Ey yoooooo it worked boss!")
+  }
+  
+  const onSucessfullCheckout = (purchasedPhoto) => {
+    console.log("photo recieved in show", purchasedPhoto.purchasedPhoto.file)
   }
 
   return (
@@ -59,7 +74,11 @@ const Show = ( props ) => {
               <div className="description">
                 <p>{photoData.photoDescription}</p>
               </div>
-              <div className="resolution">
+              <div 
+                className="resolution">
+                <div 
+                  className ="resDemo"
+                  style={{ width: `${imgWidth / 25}px`, height: `${imgHeight / 25}px`}}></div>
                 Resolution: {imgWidth}x{imgHeight}
               </div>
 
@@ -68,34 +87,25 @@ const Show = ( props ) => {
         <hr></hr>
 
       <div className="buyBanner">
-
         <div className="buyInfo">
           Price: ${photoData.photoPrice}
         </div>
-
-
-        
-
         <button 
             to="#" 
             className="buyBtn text-center"
             onClick={() => setOpenModal(true)}
-            >
-              Buy 
+            > Buy 
               <br></br>
               <i class="fab fa-cc-stripe"></i>
         </button>
-      </div>
-   
-      
+      </div>      
     </div>
 
     <CardFieldModal 
-      price={photoData.photoPrice}
-      onSucessfullCheckout={onSucessfullCheckout}
+      photoData={photoData}
+      sucessfullCheckout={(purchasedPhoto) => onSucessfullCheckout(purchasedPhoto)}
       open={openModal}
       onClose={() => setOpenModal(false)}
-      
       />
     </div>
   )

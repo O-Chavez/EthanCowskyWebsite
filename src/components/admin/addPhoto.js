@@ -34,7 +34,7 @@ const AddPhoto = ({ uploadResponse, photoUploaded, addedPhoto }) => {
         formData.append("photoDescription", photoDescription);
         formData.append("photoPrice", photoPrice);
       const res = await axios({
-        api: `/photos/upload`,
+        url: `${api}/photos/upload/`,
         method: "post",
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -43,7 +43,6 @@ const AddPhoto = ({ uploadResponse, photoUploaded, addedPhoto }) => {
           setUploadPercentage(parseInt(Math.round((progressEvent.loaded * 100) / progressEvent.total)))
         },
         // headers: {"x-auth-token": userData.token},
-        baseURL: `${api}`,
         data: formData
       });
       const { showImg } = res.data.photo;
