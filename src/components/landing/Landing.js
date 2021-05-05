@@ -76,7 +76,7 @@ export default function Landing() {
         onMouseEnter={e => setHovered(e.target.innerText)} 
         onMouseLeave={e => setHovered("")}
         >Ethan Cowsky Photography
-        <div className={`text-center ${hovered === 'Ethan Cowsky Photography' ? "shown" : 'hidden'} `}>
+        <div className={`text-center igLink ${hovered === 'Ethan Cowsky Photography' ? "shown" : 'hidden'} `}>
           <a 
             className="nav-link text-white fs-4">
             Instagram <i className="fab fa-instagram"></i>

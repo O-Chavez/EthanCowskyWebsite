@@ -92,6 +92,17 @@ a:hover {
   top: 22.5%;
 }
 
+.igLink {
+  height: 10%;
+  overflow: hidden;
+  transition: .25s;
+}
+
+.logo:hover .igLink {
+  height: 100%;
+  transition: .25s;
+}
+
 .hidden {
   display: none;
   overflow: hidden;

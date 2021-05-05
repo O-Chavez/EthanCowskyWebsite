@@ -6,13 +6,24 @@
   flex: 40em;
   justify-content: center;
   position: relative;
-  /* min-width: 25em; */
   height: 30em;
-  /* background-color: rgba(12, 12, 12, 0.281); */
   font-family: Roboto;
   overflow: hidden;
   box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.329);
   border-radius: 5px;
+
+  /* display: flex;
+  margin: 0 10em 2em 10em;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 100%;
+  justify-content: center;
+  position: relative;
+  height: 50em;
+  font-family: Roboto;
+  overflow: hidden;
+  box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.329);
+  border-radius: 5px; */
 }
 
 a {
@@ -33,6 +44,11 @@ a {
   background-size: 150%;
 }
 
+.image:hover .infoText {
+  opacity: 1;
+  transition: .75s;
+}
+
 .info {
   position: relative;
   opacity: 0;
@@ -50,8 +66,14 @@ a {
   font-weight: 300;
   bottom: 10%;
   right: 25%;
-  text-shadow: 2px 2px #00000088;
+  /* text-shadow: 2px 2px #00000088; */
   font-size: calc(0.4em + 1vmin);
+  opacity: 0;
+}
+
+.infoText:hover {
+  opacity: 1;
+  transition: .5s;
 }
 
 .infoTitle{
@@ -62,7 +84,7 @@ a {
   font-size: 1.25em;
   bottom: 45%;
   right: 5%;
-  text-shadow: 3px 5px 4px #222222a2;
+  /* text-shadow: 3px 5px 4px #222222a2; */
 
 }
 
@@ -72,9 +94,10 @@ a {
   right: 5%;
   border-radius: 5px;
   padding: 0.75em;
-  background-color: #c4c4c4;
-  border: none;
-  color:white;
+  /* background-color: #c4c4c4; */
+  /* border: 1px solid white; */
+  border: 1px solid white;
+  color: white;
   text-shadow: 1px 1px #25252552;
   transition: .25s;
 
@@ -82,6 +105,7 @@ a {
 
 .infoButton:hover {
   box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.753);
+  border: 1px solid rgba(255, 255, 255, 0);
   transition: .25s;
 }
 

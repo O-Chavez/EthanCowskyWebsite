@@ -17,18 +17,27 @@ const Admin = () => {
   const [checkPhotos, setCheckPhotos] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userInfo, setUserInfo] = useState({});
+  const {userData, setUserData} = useContext(UserContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const {userData, setUserData} = useContext(UserContext);
+  // const {userData, setUserData} = useContext(UserContext);
 
   useEffect(() => {
     const getPhotos = async () => {
       const retrievedPhotos = await axios.get(`${api}/photos`);
       setPhotos(retrievedPhotos.data.allPhotos.reverse());
     }
+
+    if(userData.token){
+      setIsLoggedIn(true);
+    } else if(userData.token === undefined) {
+      setIsLoggedIn(false);
+    }
+
+
      getPhotos();
-  }, [uploadResponse, checkPhotos])
+  }, [uploadResponse, checkPhotos, userData])
 
   const handleSignIn = async () => {
     const loginData = {
@@ -38,7 +47,7 @@ const Admin = () => {
     // check if signed in
     const userLogin = await axios.post(`${api}/admin/signin`, loginData);
      // if signed in, get JWT
-    setUserInfo(
+    setUserData(
       {      
         token: userLogin.data.token,
         user: userLogin.data.user
@@ -55,10 +64,13 @@ const Admin = () => {
 
   const onSignOut = () => {
     setIsLoggedIn(false);
-    setUserInfo(null);
+    setUserData({
+      username: undefined,
+      token: undefined
+    });
   }
   const onSignIn = () => {
-
+    return null;
   }
 
   const SignInBtn = () => {
@@ -155,15 +167,15 @@ const Admin = () => {
                   onChange={e => setPassword(e.target.value)}></input>
               </div>
               <div className="d-flex flex-row justify-content-between">
-                <button 
-                  className="btn btn-primary"
-                  onClick={handleSignIn}>Sign In
-                </button>
                 <Link 
                   to="/"
                   className="btn btn-secondary"
                   >Go Back
                 </Link>
+                <button 
+                  className="btn btn-primary"
+                  onClick={handleSignIn}>Sign In
+                </button>
               </div>
               
             </div>

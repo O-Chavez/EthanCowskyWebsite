@@ -53,24 +53,20 @@ const App = () => {
     <div className="app">
       <BrowserRouter>
         <Switch>
+        <UserContext.Provider value={{ userData, setUserData}}>
           <Route path="/" exact component={LandingPage} />
           <Route path="/mywork" component={Index} />
-          <UserContext.Provider value={{ userData, setUserData}}>
-            <Route path="/admin" exact component={Admin} />
-            <Route path="/edit" component={AdminEdit} />
-          </UserContext.Provider>
-          
           <Elements
             stripe={stripePromise}>
             <Route path="/info:photoName" component={Show} />
           </Elements>
-         
+          
+            <Route path="/admin" exact component={Admin} />
+            <Route path="/edit" component={AdminEdit} />
+          </UserContext.Provider>
         </Switch>
-
       </BrowserRouter>
-
     </div>
-    
   );
 }
 

@@ -1,6 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
+import UserContext from "./UserContext";
+
 
 import AlertDismissable from "./AlertDismissable";
 
@@ -16,6 +18,8 @@ import {api} from '../../api';
   const [editResponse, setEditResponse] = useState();
   const [editMessage, setEditMessage] = useState("");
 
+  const {userData} = useContext(UserContext);
+
 
   const handleDelete = (e) => {
     e.preventDefault();
@@ -23,6 +27,8 @@ import {api} from '../../api';
     history.push('/admin');
 
   }
+
+  console.log(userData);
 
   const handleEdit = async (e) => {
     e.preventDefault();

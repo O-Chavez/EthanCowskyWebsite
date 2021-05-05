@@ -42,6 +42,7 @@ const Show = ( props ) => {
     console.log("photo recieved in show", purchasedPhoto.purchasedPhoto.file)
   }
 
+  console.log(photoData)
   return (
     <div className="showDiv">
       <nav className="landingNav navbar navbar-dark bg-dark">
@@ -62,28 +63,34 @@ const Show = ( props ) => {
         </div>
       </nav>
     
-    <div className="showContent container">
-        <Link to="/mywork" className="backArrow text-center">
-          <i class="fas fa-arrow-left"></i>
-        </Link>
-      <div 
-        className="mainImage" 
-        style={{ backgroundImage: `url('${photoData.showImg}')`}}>
-          <div className="imgCover">
-                <h5 className="title">{photoData.photoName}</h5>
-              <div className="description">
-                <p>{photoData.photoDescription}</p>
-              </div>
-              <div 
-                className="resolution">
+      <div className="showContent container">
+          <Link to="/mywork" className="backArrow text-center">
+            <i class="fas fa-arrow-left"></i>
+          </Link>
+        <div 
+          className="mainImage" 
+          // style={{ backgroundImage: `url('${photoData.showImg}')` }}
+          
+          
+          >
+          <img src={photoData.showImg} alt="Artwork Unavailable..." style={{ width: "auto", maxHeight: "100%", minHeight: "40em"}}></img>
+          
+            <div className="imgCover">
+                  <h5 className="title">{photoData.photoName}</h5>
+                <div className="description">
+                  <p>{photoData.photoDescription}</p>
+                </div>
                 <div 
-                  className ="resDemo"
-                  style={{ width: `${imgWidth / 25}px`, height: `${imgHeight / 25}px`}}></div>
-                Resolution: {imgWidth}x{imgHeight}
-              </div>
+                  className="resolution">
+                  <div 
+                    className ="resDemo"
+                    style={{ width: `${imgWidth / 30}px`, height: `${imgHeight / 30}px`}}></div>
+                  Resolution: {imgWidth}x{imgHeight}
+                </div>
 
+            </div>
+            
           </div>
-        </div>
         <hr></hr>
 
       <div className="buyBanner">
