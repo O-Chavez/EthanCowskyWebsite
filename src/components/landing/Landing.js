@@ -25,7 +25,7 @@ export default function Landing() {
     <div className="landing">
       <div 
       style={TOP_LEFT} 
-      className={`wallpaper topLeft ${hovered === "Ethan Cowsky Photography" ? "zoom" : ''}`}>
+      className={`wallpaper topLeft ${hovered === "Ethan Cowsky Image Gallery" ? "zoom" : ''}`}>
       <ul className="slideshow">
         <li></li>
         <li></li>
@@ -41,9 +41,10 @@ export default function Landing() {
           <li></li>
         </ul>
       </div>
+
       <div 
       style={BOTTOM_CENTER} 
-      className={`wallpaper bottomCenter ${hovered === "My Work" ? "zoom" : ''}`}>
+      className={`wallpaper bottomCenter ${hovered === "My Instagram" ? "zoom" : ''}`}>
         <ul className="slideshow3">
           <li></li>
           <li></li>
@@ -51,38 +52,38 @@ export default function Landing() {
         </ul>
       </div>
 
-      <div>
-        <button 
+      
+        <NavLink 
+          to="/contact"
           className={`boxes contactMe ${hovered === "Contact Me" ? 'hovered' : ''}`} 
           onMouseEnter={e => setHovered(e.target.innerText)} 
           onMouseLeave={e => setHovered("")}
           >Contact Me
-        </button>
-      </div>
+        </NavLink>
+      
 
-      <div>
-        <NavLink
-          to="/mywork"
-          className={`boxes myWork ${hovered === "My Work" ? 'hovered' : ''}`} 
+      
+        <a
+        href="https://www.instagram.com/ethancowsky/?hl=en" target="_blank" 
+        rel="noreferrer" 
+          className={`boxes myWork ${hovered === "My Instagram" ? 'hovered' : ''}`} 
           onMouseEnter={e => setHovered(e.target.innerText)} 
           onMouseLeave={e => setHovered("")}
-          >My Work
-        </NavLink>
-      </div>
+          >My Instagram
+        </a>
 
-      <a href="https://www.instagram.com/ethancowsky/?hl=en" target="_blank" 
-      rel="noreferrer" 
-        className={`boxes logo ${hovered === 'Ethan Cowsky Photography' ? "hovered" : ''}`} 
-        onMouseEnter={e => setHovered(e.target.innerText)} 
-        onMouseLeave={e => setHovered("")}
-        >Ethan Cowsky Photography
-        <div className={`text-center igLink ${hovered === 'Ethan Cowsky Photography' ? "shown" : 'hidden'} `}>
-          <a 
-            className="nav-link text-white fs-4">
-            Instagram <i className="fab fa-instagram"></i>
-          </a>
-        </div>
-      </a>
+
+
+        <NavLink
+          to="/mywork"
+          className={`boxes logo ${hovered === 'Ethan Cowsky Image Gallery' ? "hovered" : ''}`}
+          onMouseEnter={e => setHovered(e.target.innerText)} 
+          onMouseLeave={e => setHovered("")}
+          >Ethan Cowsky Image Gallery
+        </NavLink>
+      
+    
+      
 
       <Link to="/admin" className="adminLink">Admin</Link>
     </div>

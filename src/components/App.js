@@ -16,6 +16,7 @@ import Index from "./index/Index";
 import Admin from './admin/Admin';
 import AdminEdit from './admin/EditPhoto';
 import UserContext from "./admin/UserContext";
+import Contact from './contact/Contact';
 
 import "./App.css"
 
@@ -56,6 +57,7 @@ const App = () => {
         <UserContext.Provider value={{ userData, setUserData}}>
           <Route path="/" exact component={LandingPage} />
           <Route path="/mywork" component={Index} />
+          <Route path="/contact" component={Contact} />
           <Elements
             stripe={stripePromise}>
             <Route path="/info:photoName" component={Show} />

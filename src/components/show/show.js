@@ -73,7 +73,7 @@ const Show = ( props ) => {
           
           
           >
-          <img src={photoData.showImg} alt="Artwork Unavailable..." style={{ width: "auto", maxHeight: "100%", minHeight: "40em"}}></img>
+          <img src={photoData.showImg} alt="Artwork Unavailable..." style={{ width: "auto", maxHeight: "100%", minHeight: "40em", borderRadius: "5px"}}></img>
           
             <div className="imgCover">
                   <h5 className="title">{photoData.photoName}</h5>

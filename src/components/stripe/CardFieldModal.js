@@ -149,49 +149,56 @@ const CheckoutForm = ({ photoData, sucessfullCheckout, open, onClose }) => {
   } else if (purchasedPhotoRes === "") {
     return ReactDOM.createPortal (
     <div style={BG_STYLE}>
-    
+    <div className="formBackground">
       <form 
-      className="FormGroup" 
-        onSubmit={handleSubmit}
-        id="myForm">
-      <button
-        onClick={handleClose}
-        className="closeBtn"
-        >
-        <i class="far fa-times-circle"></i>
-      </button>
-      
-        <div className="FormRow">
-          <label htmlfor="name" className="FormRowLabel">Name</label>
-          <input 
-            type="text" 
-            id="name" 
-            required 
-            placeholder="Bilbo Baggins" 
-            className="formRowInput"></input>
-        </div>
-        <div className="FormRow">
-          <label htmlfor="email" className="FormRowLabel">Email</label>
-          <input 
-            type="email" 
-            id="email" 
-            required
-            placeholder="ring_carrier@fellowship.com" className="formRowInput"></input>
-        </div>
-
-        <div className="FormRow">
-          <CardElement options={CARD_OPTIONS} />
-        </div>
-
-        <button 
-          type="submit" 
-          disabled={!stripe || isProcessing}
-          className="payBtn">
-          {isProcessing ? "Processing..." : `Pay $${photoData.photoPrice}`}
+        className="FormGroup" 
+          onSubmit={handleSubmit}
+          id="myForm">
+        <button
+          onClick={handleClose}
+          className="closeBtn"
+          >
+          <i class="far fa-times-circle"></i>
         </button>
-        <HandleResponse 
-          checkoutResponse={checkoutResponse}/>
-      </form>
+        
+          <div className="FormRow">
+            <label htmlfor="name" className="FormRowLabel">Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              required 
+              placeholder="Bilbo Baggins" 
+              className="formRowInput"></input>
+          </div>
+          <div className="FormRow">
+            <label htmlfor="email" className="FormRowLabel">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              required
+              placeholder="ring_carrier@fellowship.com" className="formRowInput"></input>
+          </div>
+
+          <div className="FormRow">
+            <CardElement options={CARD_OPTIONS} />
+          </div>
+
+          <button 
+            type="submit" 
+            disabled={!stripe || isProcessing}
+            className="payBtn">
+            {isProcessing ? "Processing..." : `Pay $${photoData.photoPrice}`}
+          </button>
+          <HandleResponse 
+            checkoutResponse={checkoutResponse}/>
+        </form>
+
+        <div className="disclaimerDiv">
+          <p>Disclaimer:</p>
+          <p>By purchasing you agree that this image is for for personal use only and not for re-sale or distribution. The creator retains the legal ownership of the image rights.</p>
+        </div>
+    </div>
+      
     </div>,
     document.querySelector('#modal')
   );

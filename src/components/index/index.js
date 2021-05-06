@@ -40,10 +40,12 @@ import Header from '../partials/Header';
       <div 
         className="text-white my-5 px-5 d-flex align-items-center justify-content-center w-100 top_banner">
           <hr className="w-25 d-block"></hr>
-          <h3 className="flex-fill text-center">My Work</h3>
+          <h3 className="flex-fill text-center">Image Gallery</h3>
           <hr className="w-25 d-block"></hr>
 
+
       </div>
+      <div style={{color: "White", textAlign: "center"}}>Browse some of my artwork below and support me by purchasing a full resloution image!</div>
 
 
       

@@ -57,12 +57,13 @@ hr {
   height: 100%;
   border-radius: 5px;
   transition: 1.5s;
+  z-index: 1;
 
 }
 
 .imgCover:hover {
-  opacity: 0.25;
-  transition: .5s;
+  opacity: 0;
+  transition: ease-in-out .75s;
 }
 
 .title {
