@@ -53,20 +53,34 @@ const App = () => {
   return (
     <div className="app">
       <BrowserRouter>
-        <Switch>
+        
         <UserContext.Provider value={{ userData, setUserData}}>
-          <Route path="/" exact component={LandingPage} />
-          <Route path="/mywork" component={Index} />
-          <Route path="/contact" component={Contact} />
-          <Elements
-            stripe={stripePromise}>
-            <Route path="/info:photoName" component={Show} />
-          </Elements>
-          
-            <Route path="/admin" exact component={Admin} />
-            <Route path="/edit" component={AdminEdit} />
+        <Route render={({location}) => (
+          <TransitionGroup
+            className="landingSwitch">
+            <CSSTransition 
+              key={location.key}
+              timeout={900}
+              classNames="landingDirection">
+              
+                <Switch location={location}>
+                  <Route path="/" exact component={LandingPage} />
+                  <Route path="/mywork" component={Index} />
+                  <Route path="/contact" component={Contact} />
+                  <Elements stripe={stripePromise}>
+                    <Route path="/info:photoName" component={Show} />
+                  </Elements>
+                  
+                  <Route path="/admin" exact component={Admin} />
+                  <Route path="/edit" component={AdminEdit} />
+                </Switch>
+              </CSSTransition>
+          </TransitionGroup>
+
+        )} />
+        
           </UserContext.Provider>
-        </Switch>
+        
       </BrowserRouter>
     </div>
   );

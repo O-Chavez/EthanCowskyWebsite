@@ -120,18 +120,19 @@ a:hover {
     font-size: 5.25vw;
   }
   .contactMe {
-    bottom: 18%;
+    bottom: 15%;
     left: 35%;
   }
   
   .myWork {
-    right: 8%;
+    right: 5%;
     top: 47%;
   }
   
   .logo{
     left: 5%;
     top: 18%;
+    width: 9rem;
   }
 }
 

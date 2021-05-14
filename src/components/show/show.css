@@ -1,4 +1,6 @@
 .showDiv {
+  position: relative;
+  /* overflow: hidden; */
   background-color: rgb(39, 39, 39);
   height: 100%;
   width: 100%;
@@ -12,6 +14,8 @@ hr {
 .showContent {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  /* max-height: 100%; */
 }
 
 .backArrow {
@@ -32,29 +36,53 @@ hr {
 }
 
 .mainImage {
-  position: relative;
+  /* width: 100%;
+  height: auto;
+   */
+
+   width: auto;
   max-width: 100%;
-  height: 40em;
+  height: auto;
+  position: relative;
+  /* max-width: 100%; */
+  /* height: 40em; */
   /* background-image: url(https://ocmain.s3-us-west-1.amazonaws.com/Ethan+Cowsky/FINALLY+BACK.png); */
   background-size: contain;
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
   margin: 0 auto 1.5em auto;
-  box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.329);
-  border-radius: 5px;
+  box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.356);
 
+
+}
+
+.showImg {
+  width: auto;
+  height: auto;
+
+  max-height: 40rem;
+  max-width: 100%;
+
+  /* width: auto;
+  max-height: 100%;
+  min-height: 40rem; */
+  border-radius: 5px
 }
 
 .imgCover {
   position: absolute;
   top: 0;
-  z-index: 100;
   /* clip-path: polygon(100% 0, 0% 100%, 100% 100%); */
   /* background-color: rgba(146, 145, 145, 0.616); */
   background: linear-gradient(to right bottom, #2f344100 50%, rgba(146, 145, 145, 0.267) 50%);
   width: 100%;
   height: 100%;
+
+  max-height: 40rem;
+  max-width: 100%;
+
+
   border-radius: 5px;
   transition: 1.5s;
   z-index: 1;
@@ -63,7 +91,7 @@ hr {
 
 .imgCover:hover {
   opacity: 0;
-  transition: ease-in-out .75s;
+  transition: .5s;
 }
 
 .title {
@@ -95,21 +123,28 @@ hr {
   color: white;
 }
 
-.resDemo{
-  text-align: center;
-  margin: auto;
-  width: 5%;
-  height: 5%;
-  border-radius: 2px;
-  background-color: white;
-}
 
 .buyBanner {
+  text-align: center;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  background-color: rgb(56, 56, 56);
+  
+  /* justify-content: center; */
+  /* align-content: space-around; */
   width: 100%;
-  margin: 1em;
+  margin: 1rem auto 1.5em auto;
+  padding: .5rem;
+  border-radius: 15px;
+
+  box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.356);
+  /* box-shadow: 
+  -4px -4px 6px 1px rgba(97, 97, 97, 0.151),
+  3px 5px 12px 2px  rgba(0, 0, 0, 0.329),
+  inset -1px -1px 20px 1px rgba(0, 0, 0, 0.329),
+  inset 2px 2px 8px 2px rgba(97, 97, 97, 0.151) ; */
+
+  /* box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.329); */
 }
 
 .buyInfo {
@@ -118,6 +153,27 @@ hr {
   align-self: center;
   justify-content: center;
   border-radius: 5px;
+  flex: 1;
+  transition: .5s;
+}
+
+.resoultionDisclaimer {
+  align-self: center;
+  justify-self: center;
+  color: rgb(184, 180, 180);
+  flex: 2;
+  font-size: .75rem;
+  /* margin: 0 1rem 0 .5rem; */
+  margin: .5rem;
+  padding: .5rem;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 
+  inset -4px -4px 6px 1px rgba(97, 97, 97, 0.123),
+  inset 4px 4px 6px 1px  rgba(7, 7, 7, 0.164);
+   /* -2px -2px 4px 1px rgba(97, 97, 97, 0.267),
+   2px 2px 4px 1px  rgba(7, 7, 7, 0.308); */
+  
 }
 
 .buyInfo p {
@@ -132,10 +188,17 @@ hr {
   font-weight: 600;
   background-color: rgba(255, 255, 255, 0.171);
   border: none;
-  padding: .75em;
+  padding: .5em;
+  margin: .25rem;
   border-radius: 5px;
   transition: .5s;
   box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.329);
+  /* box-shadow: 
+  -2px -2px 4px 2px rgba(97, 97, 97, 0.267),
+  2px 2px 4px 2px  rgba(7, 7, 7, 0.418); */
+  margin-left: 2rem;
+
+  flex: 1;
 }
 
 .buyBtn:hover {
@@ -146,4 +209,25 @@ hr {
 
 .buyBtn i {
   font-size: 2em;
+}
+
+
+@media screen and (max-width:990px){
+  .title {
+    font-size: 3vw;
+  }
+  
+  .description p {
+    font-size: 2vw;
+  }
+
+  .resolution {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (max-width:700px){
+  .mainImage {
+    /* margin-bottom: calc(10vw * 4); */
+  }
 }

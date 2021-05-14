@@ -7,8 +7,9 @@ export default function Landing() {
   const [hovered, setHovered] = useState("");
 
   let TOP_LEFT = {
-    backgroundImage: "url('https://d147gc4b3ckpsg.cloudfront.net/filters:quality(40)/filters:format(jpeg)/uploads/We Have Been Waiting For You.png')",
+    backgroundImage: "url('https://d147gc4b3ckpsg.cloudfront.net/filters:quality(40)/filters:format(jpeg)/uploads/We Have Been Waiting For You.png')"
     // clipPath: "polygon(100vw 0, 0% 100vh, 100vw 100vh)"
+
   }
 
   let BOTTOM_RIGHT = {

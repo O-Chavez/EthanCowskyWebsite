@@ -25,7 +25,7 @@ import "./PhotoCard.css"
             className="infoButton" 
             to={{ pathname: `/info:${photoInfo.photoName}`, photoData: photoInfo }}
             >
-            More Info
+            Buy Now
           </Link>
         </div>
       </div>

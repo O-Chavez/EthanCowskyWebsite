@@ -70,10 +70,8 @@ const Show = ( props ) => {
         <div 
           className="mainImage" 
           // style={{ backgroundImage: `url('${photoData.showImg}')` }}
-          
-          
           >
-          <img src={photoData.showImg} alt="Artwork Unavailable..." style={{ width: "auto", maxHeight: "100%", minHeight: "40em", borderRadius: "5px"}}></img>
+          <img src={photoData.showImg} alt="Artwork Unavailable..." className="showImg"></img>
           
             <div className="imgCover">
                   <h5 className="title">{photoData.photoName}</h5>
@@ -82,12 +80,9 @@ const Show = ( props ) => {
                 </div>
                 <div 
                   className="resolution">
-                  <div 
-                    className ="resDemo"
-                    style={{ width: `${imgWidth / 30}px`, height: `${imgHeight / 30}px`}}></div>
+                  
                   Resolution: {imgWidth}x{imgHeight}
                 </div>
-
             </div>
             
           </div>
@@ -97,6 +92,7 @@ const Show = ( props ) => {
         <div className="buyInfo">
           Price: ${photoData.photoPrice}
         </div>
+        <div className="resoultionDisclaimer">Note: The demo image above is downscaled. The purchasable photo is full resolution.</div>
         <button 
             to="#" 
             className="buyBtn text-center"
