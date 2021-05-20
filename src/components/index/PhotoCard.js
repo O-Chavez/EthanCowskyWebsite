@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 
 import "./PhotoCard.css"
@@ -18,12 +18,10 @@ import "./PhotoCard.css"
           <div className='infoTitle'>
             {photoInfo.photoName}
           </div>
-          <div className="infoText">
-            {photoInfo.photoDescription}
-          </div>
+          
           <Link 
             className="infoButton" 
-            to={{ pathname: `/info:${photoInfo.photoName}`, photoData: photoInfo }}
+            to={{ pathname: `/info`, photoData: photoInfo }}
             >
             Buy Now
           </Link>

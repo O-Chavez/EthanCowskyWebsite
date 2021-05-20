@@ -7,7 +7,7 @@ import React from 'react'
   }
   return (
     <div
-      className={`alert ${condition === 200 ? "alert-info" : "alert-danger"} alert-dismissible fade ${!condition ? "d-none" : "show"} mt-3`} 
+      className={`alert ${condition === 200 ? "alert-danger" : "alert-info"} alert-dismissible fade ${!condition ? "d-none" : "show"} mt-3`} 
       role="alert">
       {message}
       <button 

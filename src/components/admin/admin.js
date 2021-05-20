@@ -6,7 +6,6 @@ import {api} from '../../api';
 
 import AddPhoto from './addPhoto';
 import AlertDismissable from './AlertDismissable';
-import ShowPhotos from './IndexPhotos';
 import "./admin.css"
 import IndexPhotos from './IndexPhotos';
 import UserContext from "./UserContext";
@@ -16,7 +15,6 @@ const Admin = () => {
   const [uploadResponse, setUploadResponse] = useState(null);
   const [checkPhotos, setCheckPhotos] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
   const {userData, setUserData} = useContext(UserContext);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -34,8 +32,6 @@ const Admin = () => {
     } else if(userData.token === undefined) {
       setIsLoggedIn(false);
     }
-
-
      getPhotos();
   }, [uploadResponse, checkPhotos, userData])
 
@@ -145,7 +141,7 @@ const Admin = () => {
             <div className="container mt-5 d-flex flex-column">
               <div className="mb-3">
                 <label 
-                  for="username" 
+                  htmlFor="username" 
                   className="form-label">Username</label>
                 <input 
                   type="text" 
@@ -157,7 +153,7 @@ const Admin = () => {
 
               <div className="mb-3">
                 <label 
-                  for="password" 
+                  htmlFor="password" 
                   className="form-label">Password</label>
                 <input 
                   type="text" 

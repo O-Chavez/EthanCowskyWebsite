@@ -1,16 +1,13 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 
-import { api } from "../api";
-import axios from "axios";
-
 import LandingPage from './landing/Landing';
 // import Header from "./partials/Header";
-import Footer from './partials/Footer';
+// import Footer from './partials/Footer';
 import Show from "./show/show";
 import Index from "./index/Index";
 import Admin from './admin/Admin';
@@ -27,28 +24,6 @@ const App = () => {
     token: undefined,
     user: undefined,
   });
-
-  useEffect(() => {
-    const checkLoggedIn = async () => {
-      let token = localStorage.getItem("auth-token");
-        if(token !== null) {
-          const tokenResponse = await axios.post(`${api}/users/tokenIsValid`, null, { headers: {"x-auth-token": token } }
-      );
-        if (tokenResponse.data){
-          const userResponse = api.get(`${api}/users/`, {
-            headers: {"x-auth-token": token}, 
-        });
-          setUserData({
-            token,
-            user: userResponse.data
-          });
-        }
-    } else { 
-          localStorage.setItem("auth-token", "");
-        token = "";} 
-  }
-  checkLoggedIn();
-}, []);
 
   return (
     <div className="app">
@@ -67,12 +42,11 @@ const App = () => {
                   <Route path="/" exact component={LandingPage} />
                   <Route path="/mywork" component={Index} />
                   <Route path="/contact" component={Contact} />
-                  <Elements stripe={stripePromise}>
-                    <Route path="/info:photoName" component={Show} />
-                  </Elements>
-                  
                   <Route path="/admin" exact component={Admin} />
                   <Route path="/edit" component={AdminEdit} />
+                  <Elements stripe={stripePromise}>
+                    <Route path="/info" component={Show} />
+                  </Elements>          
                 </Switch>
               </CSSTransition>
           </TransitionGroup>

@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Link } from "react-router-dom";
 
-import { url } from '../../api';
 import './Photo.css';
 
  const Photo = ({ PhotoInfo }) => {

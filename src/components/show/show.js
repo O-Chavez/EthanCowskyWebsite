@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from "react-router-dom";
-import Footer from '../partials/Footer';
 
 import CardFieldModal from '../stripe/CardFieldModal';
 
@@ -8,26 +7,26 @@ import "./show.css";
 
 const Show = ( props ) => {
   const history = useHistory();
-  const photoData = props.location.photoData;
+  
+  
 
   const [imgHeight, setImgHeight] = useState("");
   const [imgWidth, setImgWidth] = useState("");
   const [openModal, setOpenModal] = useState(false);
-  const [tempPhotoData, setTempPhotoData] = useState();
+  const [isRendered, setIsRendered] = useState(false);
+  // const [tempPhotoData, setTempPhotoData] = useState();
 
   useEffect(()=> {
-    const photoInformationToUse = window.localStorage.getItem("photo-information");
+    if(!props.location.photoData){
+      history.push('/mywork');
+    } else {
+      setIsRendered(true);
+    }
+  }, [props.location.photoData, history])
 
-    setTempPhotoData(photoInformationToUse)
-  }, [])
-  useEffect(() => {
-    window.localStorage.setItem("photo-information", photoData);
-  })
-
-  if(!props.location.photoData){
-    return history.goBack();
-   
-  } else {
+  if (isRendered === true)  {
+  
+    const photoData = props.location.photoData;
     const img = new Image();
 
     img.onload = () => {
@@ -35,15 +34,13 @@ const Show = ( props ) => {
       setImgWidth(img.width);
     }
     
-  img.src = photoData.showImg;
-  }
-  
-  const onSucessfullCheckout = (purchasedPhoto) => {
-    console.log("photo recieved in show", purchasedPhoto.purchasedPhoto.file)
-  }
+    img.src = photoData.showImg;
 
-  console.log(photoData)
-  return (
+    const onSucessfullCheckout = (purchasedPhoto) => {
+        console.log("photo recieved in show", purchasedPhoto.purchasedPhoto.file)
+      };
+
+    return (
     <div className="showDiv">
       <nav className="landingNav navbar navbar-dark bg-dark">
         <div className="container-fluid mx-5">
@@ -65,12 +62,10 @@ const Show = ( props ) => {
     
       <div className="showContent container">
           <Link to="/mywork" className="backArrow text-center">
-            <i class="fas fa-arrow-left"></i>
+            <i className="fas fa-arrow-left"></i>
           </Link>
         <div 
-          className="mainImage" 
-          // style={{ backgroundImage: `url('${photoData.showImg}')` }}
-          >
+          className="mainImage" >
           <img src={photoData.showImg} alt="Artwork Unavailable..." className="showImg"></img>
           
             <div className="imgCover">
@@ -112,6 +107,9 @@ const Show = ( props ) => {
       />
     </div>
   )
+  } else {
+    return null
+  }
 }
 
 export default Show;

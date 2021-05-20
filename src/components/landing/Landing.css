@@ -166,7 +166,7 @@ li {
 }
 
 .slideshow li:nth-child(1) { 
-  background-image: url(https://ocmain.s3-us-west-1.amazonaws.com/Ethan+Cowsky/vdbforester4k.png);
+  background-image: url('https://d147gc4b3ckpsg.cloudfront.net/filters:quality(100)/fit-in/1200x800/filters:format(jpeg)/uploads/Forrest Boi.png');
   animation-delay: 3s; 
  
 }
@@ -181,7 +181,7 @@ li {
 
 
 .slideshow2 li:nth-child(1) { 
-  background-image: url(https://ocmain.s3-us-west-1.amazonaws.com/Ethan+Cowsky/statues4k.jpg) ;
+  background-image: url('https://d147gc4b3ckpsg.cloudfront.net/filters:quality(100)/fit-in/1200x800/filters:format(jpeg)/uploads/Finally Back.png') ;
   animation-delay: 8s; 
 
 }

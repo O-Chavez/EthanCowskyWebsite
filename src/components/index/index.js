@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { api } from '../../api';
+// import { useHistory } from "react-router-dom";
+
 
 import "./index.css";
 
@@ -10,6 +12,7 @@ import Header from '../partials/Header';
   const Index = () => {
 
     const [photos, setPhotos] = useState();
+    // const history = useHistory();
 
   useEffect(() => {
     const getPhotos = async () => {
@@ -31,7 +34,6 @@ import Header from '../partials/Header';
       )
     }
   }
-
 
   return (
     <div className="index">

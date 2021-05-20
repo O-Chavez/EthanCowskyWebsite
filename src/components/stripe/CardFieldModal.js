@@ -78,7 +78,7 @@ const CheckoutForm = ({ photoData, sucessfullCheckout, open, onClose }) => {
     // Get a reference to a mounted CardElement.
     const cardElement = elements.getElement(CardElement);
 
-    const {paymentMethod, error} = await stripe.createPaymentMethod({
+    const {error} = await stripe.createPaymentMethod({
       type: 'card',
       card: cardElement,
       billing_details: billingDetails
@@ -205,7 +205,7 @@ const CheckoutForm = ({ photoData, sucessfullCheckout, open, onClose }) => {
   } else {
     return (
       <div style={BG_STYLE}>
-        <div className="FormGroup p-5">
+        <div className="container FormGroup p-5">
           <button
             onClick={handleClose}
             className="closeBtn">
@@ -214,8 +214,7 @@ const CheckoutForm = ({ photoData, sucessfullCheckout, open, onClose }) => {
           <p className="text-white">Thank you for your purchase!</p>
           <a 
             className="btn btn-primary m-4"
-            href={`${purchasedPhotoRes}`} 
-            download
+            href={`${purchasedPhotoRes}`}
             target="_blank"
             rel="noreferrer"
             >
