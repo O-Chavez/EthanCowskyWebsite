@@ -64,6 +64,7 @@ const Show = ( props ) => {
           <Link to="/mywork" className="backArrow text-center">
             <i className="fas fa-arrow-left"></i>
           </Link>
+          
         <div 
           className="mainImage" >
           <img src={photoData.showImg} alt="Artwork Unavailable..." className="showImg"></img>

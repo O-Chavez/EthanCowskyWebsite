@@ -132,6 +132,8 @@ const Admin = () => {
                 <SignInBtn/>
             </div>
           </nav>
+
+          
           <div className="container">
             <AlertDismissable 
               condition={uploadResponse}
@@ -153,18 +155,19 @@ const Admin = () => {
     return(
       <div className="admin">
         <nav className="landingNav navbar navbar-dark bg-dark">
-              <div className="container-fluid mx-5">
+              <div className="container-fluid mx-2">
                 <Link to="/"
-                  className="navbar-text text-white w-30 my-auto">
+                  className="navbar-text text-white my-auto">
                   Ethan Cowsky
                 </Link>
                 <p 
-                  className="navbar-text text-white w-30 my-auto">
+                  className="navbar-text text-white my-auto">
                   Admin Page
                 </p>
                 <SignInBtn/>
               </div>
             </nav>
+            
             <div className="container mt-5 d-flex flex-column">
               <div className="mb-3">
                 <label 

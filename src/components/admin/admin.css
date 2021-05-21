@@ -79,3 +79,8 @@
   background-position: center;
   margin-bottom: .5em;
 }
+
+.landingNav {
+  display: flex;
+  flex-direction: row;
+}
