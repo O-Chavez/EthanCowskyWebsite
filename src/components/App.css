@@ -5,16 +5,18 @@
   /* overflow: hidden; */
   font-family: 'Roboto', sans-serif;
 }
-
+.landingSwitch {
+  background-color: black;
+}
 .landingDirection-enter {
   position: absolute;
   opacity: 0;
+  width: 100%;
   /* transform: translate(0, 100%); */
 }
 
 .landingDirection-enter-active {
   position: absolute;
-
   opacity: 1;
   /* transform: translate(0,0); */
   transition: 900ms;
@@ -30,7 +32,6 @@
   opacity: 0;
   /* transform: translate(0, -100%); */
   transition: 900ms;
-  z-index: 100;
 }
 
 

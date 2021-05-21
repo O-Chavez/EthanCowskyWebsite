@@ -30,30 +30,28 @@ const App = () => {
       <BrowserRouter>
         
         <UserContext.Provider value={{ userData, setUserData}}>
-        <Route render={({location}) => (
-          <TransitionGroup
-            className="landingSwitch">
-            <CSSTransition 
-              key={location.key}
-              timeout={900}
-              classNames="landingDirection">
-              
-                <Switch location={location}>
-                  <Route path="/" exact component={LandingPage} />
-                  <Route path="/mywork" component={Index} />
-                  <Route path="/contact" component={Contact} />
-                  <Route path="/admin" exact component={Admin} />
-                  <Route path="/edit" component={AdminEdit} />
-                  <Elements stripe={stripePromise}>
-                    <Route path="/info" component={Show} />
-                  </Elements>          
-                </Switch>
-              </CSSTransition>
-          </TransitionGroup>
-
-        )} />
-        
-          </UserContext.Provider>
+          <Elements stripe={stripePromise}>
+            <Route render={({location}) => (
+              <TransitionGroup
+                className="landingSwitch">
+                <CSSTransition 
+                  key={location.key}
+                  timeout={900}
+                  classNames="landingDirection">
+                  
+                    <Switch location={location}>
+                      <Route path="/" exact component={LandingPage} />
+                      <Route path="/mywork" component={Index} />
+                      <Route path="/contact" component={Contact} />
+                      <Route path="/admin" exact component={Admin} />
+                      <Route path="/edit" component={AdminEdit} />
+                      <Route path="/info" component={Show} /> 
+                    </Switch>
+                  </CSSTransition>
+              </TransitionGroup>
+            )} />
+          </Elements>   
+        </UserContext.Provider>
         
       </BrowserRouter>
     </div>

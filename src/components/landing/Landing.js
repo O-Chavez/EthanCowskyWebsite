@@ -18,7 +18,7 @@ export default function Landing() {
   }
 
   let BOTTOM_CENTER = {
-    backgroundImage: "url('https://d147gc4b3ckpsg.cloudfront.net/filters:quality(100)/fit-in/1200x800/filters:format(jpeg)/uploads/statues.jpg')",
+    backgroundImage: "url('https://d147gc4b3ckpsg.cloudfront.net/filters:quality(80)/filters:format(jpeg)/uploads/242424.png')",
     clipPath: "polygon(100vw 0, 50% 50vh, 100vw 100vh)",
   }
  
@@ -62,8 +62,6 @@ export default function Landing() {
           >Contact Me
         </NavLink>
       
-
-      
         <a
         href="https://www.instagram.com/ethancowsky/?hl=en" target="_blank" 
         rel="noreferrer" 
@@ -74,7 +72,6 @@ export default function Landing() {
         </a>
 
 
-
         <NavLink
           to="/mywork"
           className={`boxes logo ${hovered === 'Ethan Cowsky Image Gallery' ? "hovered" : ''}`}
@@ -83,10 +80,7 @@ export default function Landing() {
           >Ethan Cowsky Image Gallery
         </NavLink>
       
-    
-      
-
-      <Link to="/admin" className="adminLink">Admin</Link>
+        <Link to="/admin" className="adminLink">Admin</Link>
     </div>
   )
 }

@@ -1,11 +1,8 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-
 import "./PhotoCard.css"
 
   const PhotoCard = ({ photoInfo }) => {
-
-   
 
   return (
     <div 
@@ -18,7 +15,7 @@ import "./PhotoCard.css"
           <div className='infoTitle'>
             {photoInfo.photoName}
           </div>
-          
+
           <Link 
             className="infoButton" 
             to={{ pathname: `/info`, photoData: photoInfo }}

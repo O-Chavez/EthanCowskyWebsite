@@ -1,7 +1,7 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
-import UserContext from "./UserContext";
+// import UserContext from "./UserContext";
 
 
 import AlertDismissable from "./AlertDismissable";
@@ -18,17 +18,15 @@ import {api} from '../../api';
   const [editResponse, setEditResponse] = useState();
   const [editMessage, setEditMessage] = useState("");
 
-  const {userData} = useContext(UserContext);
+  // const {userData} = useContext(UserContext);
 
 
   const handleDelete = (e) => {
     e.preventDefault();
     axios.delete(`${api}/photos/delete/${props.location.PhotoInfo._id}`);
-    history.push('/admin');
-
+    history.push('/admin', { state: {deletedPhoto: true} });
   }
 
-  console.log(userData);
 
   const handleEdit = async (e) => {
     e.preventDefault();
@@ -45,7 +43,7 @@ import {api} from '../../api';
   }
 
   return (
-    <div>
+    <div style={{minHeight: "100%", width: "100%", backgroundColor: "rgba(128, 128, 128, 0.432)"}}>
       <nav className="landingNav navbar navbar-dark bg-dark">
         <div className="container-fluid mx-5">
           <Link to="/"

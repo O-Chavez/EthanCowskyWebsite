@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react';
+import {useHistory} from 'react-router-dom';
 import { Link } from "react-router-dom";
 
 import axios from 'axios';
 import {api} from '../../api';
 
 import AddPhoto from './addPhoto';
+import Photo from './Photo';
 import AlertDismissable from './AlertDismissable';
 import "./admin.css"
-import IndexPhotos from './IndexPhotos';
+// import IndexPhotos from './IndexPhotos';
 import UserContext from "./UserContext";
 
 const Admin = () => {
@@ -19,21 +21,29 @@ const Admin = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  // const {userData, setUserData} = useContext(UserContext);
+  const history = useHistory();
 
   useEffect(() => {
     const getPhotos = async () => {
       const retrievedPhotos = await axios.get(`${api}/photos`);
       setPhotos(retrievedPhotos.data.allPhotos.reverse());
     }
+    getPhotos();
 
     if(userData.token){
       setIsLoggedIn(true);
     } else if(userData.token === undefined) {
       setIsLoggedIn(false);
     }
-     getPhotos();
-  }, [uploadResponse, checkPhotos, userData])
+
+    if(history.location.state === undefined ){
+      return null
+    } else {
+        setCheckPhotos(true)
+        return history.location.state.state.deletedPhoto === false; 
+    }
+
+  }, [uploadResponse, checkPhotos, userData, history.location.state])
 
   const handleSignIn = async () => {
     const loginData = {
@@ -87,11 +97,25 @@ const Admin = () => {
           Sign In
         </button>
       )
-      
     }
   }
 
-
+  const allThePhotos = (photos) => {
+    if (photos){
+      return (
+      photos.map(photo => 
+        <Photo 
+          PhotoInfo={photo}
+          key={photo._id}
+          photoDeleted={e => setCheckPhotos(false)}
+          // photoDeleted={e => setCheckPhotos(true)}
+          />
+      ))
+    } else {
+      return null
+    }
+  }
+  
   if(isLoggedIn){
     return (
         <div className="admin">
@@ -117,9 +141,12 @@ const Admin = () => {
               uploadResponse={UR => setUploadResponse(UR)}
               addedPhoto={e => setCheckPhotos(false)}
               photoUploaded={e => setCheckPhotos(true)}
-            />        
+            />    
           </div>
-        <IndexPhotos photos={photos}/>
+
+          <div className="IndexGrid mt-3 container">
+            {allThePhotos(photos)}
+          </div>
         </div>
       )
   } else {
@@ -175,14 +202,9 @@ const Admin = () => {
               </div>
               
             </div>
-      </div>
-          
+      </div> 
     )
-
   }
-
-
-  
 }
 
 export default Admin;

@@ -38,10 +38,27 @@
   padding: 2rem;
 }
 
-.artistName{
-  font-size: 3rem;
-}
-
 .contactDescription {
   margin: 2rem;
+}
+
+@media screen and (max-width:700px){
+  .heroShot {
+    width: 12rem;
+    height: 12rem;
+    margin: 1rem
+  }
+
+  .contactInfo {
+    padding: 1rem;
+    font-size: 1rem;
+    width: 85%;
+  }
+
+  .contactDescription {
+    margin: .5rem;
+  }
+    
+  
+  
 }
