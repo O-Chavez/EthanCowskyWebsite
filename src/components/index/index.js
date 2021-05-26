@@ -47,7 +47,7 @@ import Header from '../partials/Header';
 
 
       </div>
-      <div style={{color: "White", textAlign: "center"}}>Browse some of my artwork below and support me by purchasing a full resloution image!</div>
+      <div style={{color: "White", textAlign: "center"}}>Browse some of my artworks below and support me by purchasing a full resloution image!</div>
 
 
       
