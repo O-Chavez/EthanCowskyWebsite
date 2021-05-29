@@ -50,7 +50,6 @@ const CheckoutForm = ({ photoData, sucessfullCheckout, open, onClose }) => {
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutResponse, setCheckoutResponse] = useState();
   const [purchasedPhotoRes, setPurchasedPhotoRes] = useState("");
-
   const stripe = useStripe();
   const elements = useElements();
 
@@ -103,6 +102,7 @@ const CheckoutForm = ({ photoData, sucessfullCheckout, open, onClose }) => {
         const purchasedPhoto = await axios.get(`${api}/photos/purchase/${photoData._id}`);
         setCheckoutResponse("Success!");
         setPurchasedPhotoRes(purchasedPhoto.data.purchasedPhoto.file);
+
         sucessfullCheckout(purchasedPhoto.data);
         // onClose(false);
         } catch (error) {
@@ -158,7 +158,7 @@ const CheckoutForm = ({ photoData, sucessfullCheckout, open, onClose }) => {
           onClick={handleClose}
           className="closeBtn"
           >
-          <i class="far fa-times-circle"></i>
+          <i className="far fa-times-circle"></i>
         </button>
         
           <div className="FormRow">

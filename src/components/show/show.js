@@ -7,14 +7,10 @@ import "./show.css";
 
 const Show = ( props ) => {
   const history = useHistory();
-  
-  
-
   const [imgHeight, setImgHeight] = useState("");
   const [imgWidth, setImgWidth] = useState("");
   const [openModal, setOpenModal] = useState(false);
   const [isRendered, setIsRendered] = useState(false);
-  // const [tempPhotoData, setTempPhotoData] = useState();
 
   useEffect(()=> {
     if(!props.location.photoData){
@@ -37,7 +33,7 @@ const Show = ( props ) => {
     img.src = photoData.showImg;
 
     const onSucessfullCheckout = (purchasedPhoto) => {
-        console.log("photo recieved in show", purchasedPhoto.purchasedPhoto.file)
+        console.log("Purchased Photo!", purchasedPhoto.purchasedPhoto.file)
       };
 
     return (

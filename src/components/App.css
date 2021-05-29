@@ -1,60 +1,28 @@
  html, body, #root, .app,
  .landingSwitch
    {
-  height: 100%;
-  /* overflow: hidden; */
   font-family: 'Roboto', sans-serif;
-}
-.landingSwitch {
   background-color: black;
 }
+
 .landingDirection-enter {
   position: absolute;
   opacity: 0;
   width: 100%;
-  /* transform: translate(0, 100%); */
 }
 
 .landingDirection-enter-active {
   position: absolute;
   opacity: 1;
-  /* transform: translate(0,0); */
   transition: 900ms;
 }
 
 .landingDirection-exit {
   opacity: 1;
-  /* transform: translate(0,0); */
   z-index: 100;
 }
 
 .landingDirection-exit-active {
   opacity: 0;
-  /* transform: translate(0, -100%); */
   transition: 900ms;
 }
-
-
-/* .landingDirection-appear,
-.landingDirection-enter {
-  position: absolute;
-  opacity: 0;
-  width: 100%;
-}
-
-.landingDirection-active,
-.landingDirection-enter.landingDirection-enter-active {
-  opacity: 1;
-  transition: opacity 300ms linear 150ms;
-
-}
-
-.landingDirection-exit {
-  opacity: 1;
-  position: absolute;
-  width: 100%
-}
-.landingDirection-exit.landingDirection-exit-active {
-  opacity: 0;
-  transition: opacity 150ms linear;
-} */

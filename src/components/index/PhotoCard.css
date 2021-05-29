@@ -1,6 +1,6 @@
 .photocard {
   display: flex;
-  margin: 1em;
+  margin: 0.1em;
   flex-direction: row;
   flex-wrap: wrap;
   flex: 40em;
@@ -11,7 +11,7 @@
   overflow: hidden;
   box-shadow: 
     3px 5px 12px -1px rgba(0, 0, 0, 0.329);
-  border-radius: 5px;
+  border-radius: 2px;
   font-family: 'Roboto', sans-serif;
 
 
@@ -35,7 +35,6 @@ a {
 
 .image {
   width: 100%;
-  /* background-size: contain; */
   transition: .35s ease-in-out; 
   background-size: 130%;
   background-repeat: no-repeat;
@@ -52,7 +51,7 @@ a {
   transition: .75s;
 }
 .image:hover .info{
-  background-color: rgba(77, 77, 77, 0.774);
+  background-color: rgba(66, 66, 66, 0.685);
   transition: .5s ease-in-out;
 }
 
@@ -64,7 +63,7 @@ a {
   opacity: 1;
   transition: .25s;
   clip-path: polygon(100% 0, 0% 100%, 100% 100%);
-  background-color: rgba(146, 145, 145, 0.582);
+  /* background-color: rgba(146, 145, 145, 0.582); */
   text-shadow: 2px 2px #00000088;
 }
 
