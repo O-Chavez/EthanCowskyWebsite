@@ -9,6 +9,8 @@ import "./index.css";
 import PhotoCard from "./PhotoCard"
 import Header from '../partials/Header';
 
+import Landing from '../landing/Landing';
+
   const Index = () => {
 
     const [photos, setPhotos] = useState();
@@ -37,10 +39,15 @@ import Header from '../partials/Header';
 
   return (
     <div className="index">
-      <Header/>
+
+    <Landing
+      handleIndexScroll />
+
+
+      <Header />
 
       <div 
-        className="text-white my-5 px-5 d-flex align-items-center justify-content-center w-100 top_banner">
+        className="text-white my-5 px-5 d-flex align-items-center justify-content-center w-100 top_banner" >
           <hr className="w-25 d-block"></hr>
           <h3 className="flex-fill text-center">Image Gallery</h3>
           <hr className="w-25 d-block"></hr>
@@ -55,6 +62,7 @@ import Header from '../partials/Header';
         {photoList()}
       </div>
     </div>
+
   )
 }
 

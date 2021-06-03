@@ -14,7 +14,7 @@ const Show = ( props ) => {
 
   useEffect(()=> {
     if(!props.location.photoData){
-      history.push('/mywork');
+      history.push('/');
     } else {
       setIsRendered(true);
     }
@@ -57,7 +57,7 @@ const Show = ( props ) => {
       </nav>
     
       <div className="showContent container">
-          <Link to="/mywork" className="backArrow text-center">
+          <Link to="/" className="backArrow text-center">
             <i className="fas fa-arrow-left"></i>
           </Link>
           

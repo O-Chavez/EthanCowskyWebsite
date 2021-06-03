@@ -5,7 +5,6 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from '@stripe/stripe-js';
 
-import LandingPage from './landing/Landing';
 // import Header from "./partials/Header";
 // import Footer from './partials/Footer';
 import Show from "./show/show";
@@ -14,6 +13,8 @@ import Admin from './admin/Admin';
 import AdminEdit from './admin/EditPhoto';
 import UserContext from "./admin/UserContext";
 import Contact from './contact/Contact';
+
+import Landing2 from './landing2/Landing2';
 
 import "./App.css"
 
@@ -40,8 +41,11 @@ const App = () => {
                   classNames="landingDirection">
                   
                     <Switch location={location}>
-                      <Route path="/" exact component={LandingPage} />
-                      <Route path="/mywork" component={Index} />
+                    
+                      <Route path="/" exact component={Index} />
+                      {/*
+                      <Route path="/landing2" component={Landing2} />
+                      */}
                       <Route path="/contact" component={Contact} />
                       <Route path="/admin" exact component={Admin} />
                       <Route path="/edit" component={AdminEdit} />

@@ -1,0 +1,9 @@
+.landing2 {
+  /* background-color: rgb(39, 39, 39); */
+  background-color: black;
+  height: 100%;
+}
+
+.rounded {
+  border-radius: 50px;
+}

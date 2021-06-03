@@ -3,6 +3,7 @@
   /* background-image: linear-gradient( rgb(201, 201, 201), rgb(0, 0, 0));   */
   background-color: rgb(39, 39, 39);
   margin: 0;
+  padding: 0 0 1rem 0;
   position: relative;
 }
 
@@ -19,7 +20,7 @@
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
-  margin: 1em 1em 0 1em;
+  margin: 2em 2em 2em 2em;
   /* max-width: 1750px!important; */
 }
 

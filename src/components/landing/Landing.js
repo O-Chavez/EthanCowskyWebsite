@@ -6,6 +6,7 @@ export default function Landing() {
 
   const [hovered, setHovered] = useState("");
 
+  
   let TOP_LEFT = {
     backgroundImage: "url('https://d147gc4b3ckpsg.cloudfront.net/filters:quality(100)/fit-in/1200x800/filters:format(jpeg)/uploads/we have been waiting for you.png')"
     // clipPath: "polygon(100vw 0, 0% 100vh, 100vw 100vh)"
@@ -23,7 +24,7 @@ export default function Landing() {
   }
  
   return (
-    <div className="landing">
+    <div className="landing" id="landing">
       <div 
       style={TOP_LEFT} 
       className={`wallpaper topLeft ${hovered === "Ethan Cowsky Image Gallery" ? "zoom" : ''}`}>
@@ -72,13 +73,17 @@ export default function Landing() {
         </a>
 
 
-        <NavLink
-          to="/mywork"
+        <a
+          href="#index"
           className={`boxes logo ${hovered === 'Ethan Cowsky Image Gallery' ? "hovered" : ''}`}
           onMouseEnter={e => setHovered(e.target.innerText)} 
           onMouseLeave={e => setHovered("")}
           >Ethan Cowsky Image Gallery
-        </NavLink>
+          {/*
+          <img src="https://ethan-cowsky-website.s3.us-west-1.amazonaws.com/uploads/12312.png" 
+          style={{width: "10em"}}></img>
+          */}
+          </a>
       
         <Link to="/admin" className="adminLink">Admin</Link>
     </div>
